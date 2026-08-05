@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+
+# Environment variables (NEVER commit secrets)
+.env
+.env.local
+.env.production
+.env.staging
+
+# SQLite database files
+server/data/*.db
+server/data/*.db-wal
+server/data/*.db-shm
+
+# Large media files (download separately)
+public/lofi-chill.mp3
+public/portfolio-videos/
+public/hero-video.mp4
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Legacy files (pre-React migration)
+script.js
+styles.css
+
+# Misc
+.gemini/

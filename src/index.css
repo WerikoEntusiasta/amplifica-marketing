@@ -1,0 +1,282 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ===================================================
+   AMPLIFICA MARKETING - Ultra Premium UI Design System
+   =================================================== */
+
+:root {
+  /* Dark Mode Defaults */
+  --bg: #050508;
+  --surface-card: rgba(13, 13, 20, 0.75);
+  --well-bg: rgba(255, 255, 255, 0.03);
+  --text: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  --shadow-light: transparent;
+
+  --orange: #FF6B00;
+  --orange-light: #FF8A33;
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  
+  --hero-overlay-start: rgba(5, 5, 8, 0.3);
+  --hero-overlay-mid: rgba(5, 5, 8, 0.75);
+  --hero-overlay-end: #050508;
+  --video-opacity: 0.35;
+  --video-filter: none;
+}
+
+/* Light Mode Specific Fine-Tuning */
+.light {
+  --bg: #F1F5F9;
+  --surface-card: rgba(255, 255, 255, 0.85);
+  --well-bg: #F8FAFC;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --border-subtle: rgba(148, 163, 184, 0.25);
+
+  --shadow-dark: rgba(148, 163, 184, 0.2);
+  --shadow-light: transparent;
+
+  --orange: #D95200;
+  --orange-light: #EA580C;
+  --purple: #6D28D9;
+  --purple-light: #7C3AED;
+
+  --hero-overlay-start: rgba(241, 245, 249, 0.2);
+  --hero-overlay-mid: rgba(241, 245, 249, 0.85);
+  --hero-overlay-end: #F1F5F9;
+  --video-opacity: 0.25;
+  --video-filter: contrast(1.1) brightness(1.1);
+}
+
+@theme {
+  --font-body: 'DM Sans', 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
+  --font-anton: 'Anton', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(180deg, #08080C 0%, #0B0B12 50%, #08080C 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: color 300ms ease;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-anton {
+  font-family: 'Anton', sans-serif;
+}
+
+/* Glassmorphism & Ambient Mesh Orbs */
+.glass-card {
+  background: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 28px;
+}
+
+.mesh-orb-orange {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, rgba(255, 107, 0, 0) 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-orb-purple {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Text Outline Utilities */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #8A9A86;
+}
+
+/* ===================================================
+   Clean Modern Flat Card Classes (No 3D / Depth Effects)
+   =================================================== */
+
+.neu-card {
+  border-radius: 28px;
+  background-color: var(--surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px -10px var(--shadow-dark);
+  transition: all 300ms ease-out;
+  color: var(--text);
+}
+
+.neu-card:hover {
+  border-color: rgba(255, 107, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.neu-well {
+  border-radius: 18px;
+  background-color: var(--well-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text);
+}
+
+.neu-well-deep {
+  border-radius: 22px;
+  background-color: var(--well-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text);
+}
+
+.neu-btn {
+  border-radius: 16px;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 300ms ease-out;
+  color: var(--text);
+}
+
+.neu-btn:hover {
+  border-color: rgba(255, 107, 0, 0.4);
+  color: #FF6B00;
+  transform: translateY(-1px);
+}
+
+.neu-btn:active {
+  transform: translateY(0px);
+}
+
+.neu-btn-primary {
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FF6B00 0%, #8B5CF6 100%);
+  border: none;
+  box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+  transition: all 300ms ease-out;
+  color: #FFFFFF !important;
+}
+
+.light .neu-btn-primary {
+  background: linear-gradient(135deg, #D95200 0%, #6D28D9 100%);
+  box-shadow: 0 4px 15px rgba(217, 82, 0, 0.25);
+}
+
+.neu-btn-primary:hover {
+  box-shadow: 0 6px 25px rgba(255, 107, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.neu-btn-primary:active {
+  transform: translateY(0.5px);
+}
+
+.neu-input {
+  border-radius: 16px;
+  background-color: var(--well-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text) !important;
+  transition: all 300ms ease-out;
+}
+
+.neu-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.neu-input:focus {
+  border-color: #FF6B00;
+  outline: none;
+}
+
+/* Gradient Utility Classes */
+.accent-gradient {
+  background: linear-gradient(90deg, #FF6B00 0%, #8B5CF6 100%);
+}
+
+.light .accent-gradient {
+  background: linear-gradient(90deg, #D95200 0%, #6D28D9 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #FF6B00 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light .text-gradient {
+  background: linear-gradient(135deg, #D95200 0%, #6D28D9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  border-radius: 3px;
+}
+
+/* Animations */
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(255, 107, 0, 0.3);
+  color: #FFFFFF;
+}
