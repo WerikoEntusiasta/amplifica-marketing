@@ -231,6 +231,16 @@ app.delete('/api/posts/:id', verifyApiKey, (req, res) => {
   }
 });
 
+// Serve production static frontend build if dist folder exists
+const distPath = path.join(__dirname, '..', 'dist');
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) return next();
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 app.listen(PORT, () => {
   console.log(`🚀 REST API rodando na porta ${PORT} (API_KEY protegida)`);
 });
