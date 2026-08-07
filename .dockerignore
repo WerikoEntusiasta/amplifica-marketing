@@ -9,5 +9,3 @@ server/data/*.db
 server/data/*.db-wal
 server/data/*.db-shm
 public/lofi-chill.mp3
-public/portfolio-videos/
-public/hero-video.mp4
