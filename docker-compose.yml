@@ -1,15 +1,36 @@
 version: '3.8'
 
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: amplifica-app
+  author: Werik Oliveira
+  category: Business & Marketing
+  icon: https://raw.githubusercontent.com/WerikoEntusiasta/amplifica-marketing/main/public/logo-new.png
+  title:
+    en_us: Amplifica Marketing
+    pt_br: Amplifica Marketing
+  tagline:
+    en_us: Institutional Website & Blog REST API
+    pt_br: Site Institucional & Blog REST API
+  description:
+    en_us: Amplifica Marketing agency website featuring 3D portfolio gallery, lofi music, independent blog, and SQLite REST API.
+    pt_br: Site institucional da agência Amplifica Marketing com galeria 3D, música lofi, blog independente e REST API SQLite3.
+  index: /
+  port_map: "3001"
+  scheme: http
+
 services:
   amplifica-app:
     build:
       context: .
       dockerfile: Dockerfile
     image: werikoliveira/amplificagroup:latest
-    container_name: amplifica-marketing-app
+    container_name: amplifica-marketing-zimaos
     restart: always
     ports:
-      - "${PORT:-3001}:3001"
+      - "3001:3001"
     environment:
       - PORT=3001
       - NODE_ENV=production
@@ -22,6 +43,22 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+    x-casaos:
+      envs:
+        - container: API_KEY
+          description:
+            en_us: Secret API Key for REST API write endpoints (POST, PUT, DELETE)
+            pt_br: Chave secreta de API para endpoints de escrita (POST, PUT, DELETE)
+      ports:
+        - container: "3001"
+          description:
+            en_us: Web UI & REST API Port
+            pt_br: Porta da Interface Web e REST API
+      volumes:
+        - container: /app/server/data
+          description:
+            en_us: SQLite Database Persistent Storage
+            pt_br: Armazenamento Persistente do Banco de Dados SQLite3
 
 volumes:
   sqlite_data:
