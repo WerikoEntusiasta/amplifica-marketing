@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: werikoentusiasta/amplifica-marketing:latest
+    image: werikoliveira/amplificagroup:latest
     container_name: amplifica-marketing-app
     restart: always
     ports:
