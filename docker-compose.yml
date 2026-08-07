@@ -9,13 +9,19 @@ services:
     container_name: amplifica-marketing-app
     restart: always
     ports:
-      - "3001:3001"
+      - "${PORT:-3001}:3001"
     environment:
       - PORT=3001
       - NODE_ENV=production
       - API_KEY=${API_KEY:-amplifica_sec_key_991951381_2026}
     volumes:
       - sqlite_data:/app/server/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/posts', (r) => { if (r.statusCode !== 200) process.exit(1); })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
 volumes:
   sqlite_data:

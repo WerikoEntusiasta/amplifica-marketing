@@ -6,6 +6,8 @@
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-4-000000?logo=express&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite3-003B57?logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-0B0D0E?logo=railway&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 Site institucional premium da **Amplifica Marketing**, agência de marketing digital fundada por **Werik Oliveira** ([@recwerikoliveira](https://instagram.com/recwerikoliveira)).
@@ -14,16 +16,41 @@ Inclui landing page com vídeos, galeria 3D de portfólio audiovisual, blog inde
 
 ---
 
-## 📸 Visão Geral
+## 🔑 Configuração de Segredos no GitHub (Push Automático para o Docker Hub)
 
-- 🎬 **Hero Cinematográfico** com vídeo de fundo e CTAs diretos para WhatsApp
-- ⚡ **Carrossel Infinito** de tecnologias e plataformas dominadas
-- 🎯 **Grid Bento 3x3** de serviços com efeito hover-reveal interativo
-- 🎥 **Galeria 3D Coverflow** com 67 vídeos reais do portfólio
-- 👤 **Sobre a Empresa & Fundador** separados com design editorial
-- 📚 **Blog Independente** com leitura em página inteira
-- 🎶 **Música Lofi de Fundo** a 20% de volume com pausa automática para vídeos
-- 💬 **Integração WhatsApp** em múltiplos pontos do site
+Para que o GitHub faça o **Build e Push automático da imagem Docker** para o Docker Hub (`werikoliveira/amplificagroup:latest`) a cada `git push` na branch `main`, adicione os seguintes segredos no repositório:
+
+### 📌 Como Adicionar os Segredos no GitHub:
+1. Acesse o repositório: **Settings** → **Secrets and variables** → **Actions**
+2. Clique em **New repository secret** e adicione as 2 variáveis abaixo:
+
+| Nome do Segredo (Secret Name) | Valor Exato (Secret Value) | Descrição |
+| :--- | :--- | :--- |
+| **`DOCKERHUB_USERNAME`** | `werikoliveira` | Seu nome de usuário do Docker Hub |
+| **`DOCKERHUB_TOKEN`** | `seu_dockerhub_pat_aqui` | Seu Personal Access Token (PAT) do Docker Hub |
+
+> 🤖 **Workflow de CI/CD**: O arquivo [.github/workflows/docker-publish.yml](./.github/workflows/docker-publish.yml) já está pronto. Assim que você cadastrar essas 2 variáveis no GitHub, qualquer alteração enviada compilará e publicará a imagem automaticamente no Docker Hub em `werikoliveira/amplificagroup:latest`!
+
+---
+
+## 🚂 Deploy no Railway (Passo a Passo)
+
+O repositório e o `docker-compose.yml` estão 100% otimizados para o **Railway**:
+
+### Opção A: Deploy via Repositório GitHub (Recomendado)
+1. Acesse o **[Railway.app](https://railway.app)** e clique em **+ New Project**
+2. Selecione **Deploy from GitHub repo** e escolha `WerikoEntusiasta/amplifica-marketing`
+3. Em **Variables**, adicione as seguintes variáveis de ambiente:
+   - `PORT` = `3001`
+   - `API_KEY` = `sua_chave_secreta_aqui`
+4. Em **Volumes**, adicione um volume persistente montado em:
+   - Mount Path: `/app/server/data` *(Garante a retenção do banco SQLite3)*
+5. Clique em **Deploy**! O Railway lerá o `Dockerfile` automaticamente.
+
+### Opção B: Deploy via Docker Hub Image
+1. No Railway, clique em **+ New Project** → **Deploy a Docker Image**
+2. Insira a imagem: `werikoliveira/amplificagroup:latest`
+3. Configure o Mount Path do Volume em `/app/server/data`
 
 ---
 
@@ -35,8 +62,8 @@ Inclui landing page com vídeos, galeria 3D de portfólio audiovisual, blog inde
 | **Estilização** | Tailwind CSS v4 + Glassmorphism + CSS Custom Properties |
 | **Backend** | Express.js (Node.js) |
 | **Banco de Dados** | SQLite3 (better-sqlite3) |
+| **Containerização** | Docker (Multi-stage) + Docker Compose + GitHub Actions CI/CD |
 | **Segurança** | Helmet + Rate Limiting + API Key + Prepared Statements |
-| **Componentes** | BorderGlow (React Bits), Lucide Icons |
 
 ---
 
@@ -44,6 +71,9 @@ Inclui landing page com vídeos, galeria 3D de portfólio audiovisual, blog inde
 
 ```
 amplifica-marketing/
+├── .github/
+│   └── workflows/
+│       └── docker-publish.yml     # Workflow de CI/CD para Docker Hub
 ├── public/                        # Assets estáticos
 │   ├── founder.jpg                # Foto do fundador
 │   ├── hero-video.mp4             # Vídeo de fundo do Hero (gitignored)
@@ -69,7 +99,7 @@ amplifica-marketing/
 │   │   ├── ContactFooter.tsx      # CTA WhatsApp & rodapé
 │   │   ├── Hero.tsx               # Hero com vídeo de fundo
 │   │   ├── Navbar.tsx             # Barra de navegação
-│   │   ├── ServicesBento.tsx      # Grid Bento de serviços
+│   │   ├── ServicesBento.tsx      # Grid Bento 3x3 de serviços
 │   │   ├── TechStackMarquee.tsx   # Marquee infinito de tecnologias
 │   │   ├── Video3DCoverflow.tsx   # Galeria 3D de vídeos
 │   │   └── WhatsAppButton.tsx     # Botão flutuante WhatsApp
@@ -77,9 +107,12 @@ amplifica-marketing/
 │   │   └── blogArticles.ts        # Tipagem dos artigos
 │   └── pages/
 │       └── BlogPage.tsx           # Página do blog independente
+├── .dockerignore                  # Regras de ignore do Docker
 ├── .env.example                   # Template de variáveis de ambiente
 ├── .gitignore                     # Regras de ignore do Git
 ├── API_DOCUMENTATION.md           # Documentação completa da REST API
+├── docker-compose.yml             # Orquestração de containers e volume
+├── Dockerfile                     # Multi-stage Docker build
 ├── index.html                     # Entry point HTML
 ├── package.json                   # Dependências & scripts
 ├── tsconfig.json                  # Configuração TypeScript
@@ -88,18 +121,11 @@ amplifica-marketing/
 
 ---
 
-## ⚡ Instalação & Execução
-
-### Pré-requisitos
-
-- **Node.js** v18+ (recomendado v24)
-- **npm** v9+
-
-### Passo a Passo
+## ⚡ Instalação & Execução Local
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/recwerikoliveira/amplifica-marketing.git
+git clone https://github.com/WerikoEntusiasta/amplifica-marketing.git
 cd amplifica-marketing
 
 # 2. Instale as dependências
@@ -107,27 +133,19 @@ npm install
 
 # 3. Configure as variáveis de ambiente
 cp .env.example .env
-# Edite o arquivo .env e defina sua API_KEY
 
 # 4. Inicie o servidor REST API (Terminal 1)
 node server/server.js
 
 # 5. Inicie o servidor de desenvolvimento (Terminal 2)
 npm run dev
-
-# 6. Acesse no navegador
-# Site Principal: http://localhost:5173/
-# Blog:           http://localhost:5173/#blog
-# REST API:       http://localhost:3001/api/posts
 ```
 
-### Build para Produção
+### Execução via Docker Compose (Local)
 
 ```bash
-npm run build
+docker compose up -d --build
 ```
-
-Os arquivos otimizados serão gerados na pasta `dist/`.
 
 ---
 
@@ -142,89 +160,6 @@ Os arquivos otimizados serão gerados na pasta `dist/`.
 | `POST` | `/api/posts` | 🔑 API Key | Cria novo artigo |
 | `PUT` | `/api/posts/:id` | 🔑 API Key | Atualiza artigo |
 | `DELETE` | `/api/posts/:id` | 🔑 API Key | Exclui artigo |
-
-### Autenticação
-
-Envie a API Key via um dos métodos:
-
-```bash
-# Header x-api-key
-curl -X POST http://localhost:3001/api/posts \
-  -H "Content-Type: application/json" \
-  -H "x-api-key: sua_chave_secreta_aqui" \
-  -d '{"title": "Meu Artigo", "content": "<p>Conteúdo</p>"}'
-
-# Header Authorization Bearer
-curl -X POST http://localhost:3001/api/posts \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sua_chave_secreta_aqui" \
-  -d '{"title": "Meu Artigo", "content": "<p>Conteúdo</p>"}'
-
-# Query parameter
-curl -X POST "http://localhost:3001/api/posts?api_key=sua_chave_secreta_aqui" \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Meu Artigo", "content": "<p>Conteúdo</p>"}'
-```
-
-> 📄 Documentação completa com exemplos em Python e JavaScript: [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
-
----
-
-## 🔒 Variáveis de Ambiente
-
-Copie `.env.example` para `.env` e configure:
-
-| Variável | Descrição | Padrão |
-| :--- | :--- | :--- |
-| `PORT` | Porta do servidor REST API | `3001` |
-| `API_KEY` | Chave secreta para endpoints de escrita | — |
-
-> ⚠️ **NUNCA** commite o arquivo `.env` no repositório. Ele está no `.gitignore`.
-
----
-
-## 🛡️ Segurança Aplicada
-
-- **Helmet** — Headers HTTP de segurança (CSP, HSTS, X-Frame-Options)
-- **Rate Limiting** — Máximo 100 requisições por IP a cada 15 minutos
-- **API Key** — Autenticação obrigatória em endpoints de escrita (POST, PUT, DELETE)
-- **Prepared Statements** — Prevenção total contra SQL Injection no SQLite
-- **Sanitização de Input** — Todas as entradas são sanitizadas no servidor
-- **Erros Genéricos** — Nenhum stack trace ou detalhe interno é exposto ao cliente
-- **WAL Mode** — SQLite em modo Write-Ahead Logging para acesso concorrente seguro
-- **Body Limit** — Requisições limitadas a 5MB para prevenir ataques de exaustão de memória
-
----
-
-## 🎵 Assets de Mídia
-
-Alguns arquivos de mídia são grandes demais para o Git e estão no `.gitignore`:
-
-| Arquivo | Tamanho | Descrição |
-| :--- | :--- | :--- |
-| `public/hero-video.mp4` | ~14MB | Vídeo de fundo do Hero |
-| `public/lofi-chill.mp3` | ~147MB | Música de fundo Lofi Hip Hop |
-| `public/portfolio-videos/` | ~2GB+ | 67 vídeos do portfólio |
-
-Esses arquivos devem ser baixados separadamente ou hospedados em CDN/S3.
-
----
-
-## 🚀 Deploy
-
-### Frontend (Vercel / Netlify)
-
-```bash
-npm run build
-# Faça deploy da pasta dist/
-```
-
-### Backend API (Railway / Render / VPS)
-
-```bash
-# Defina as variáveis de ambiente PORT e API_KEY no painel do serviço
-node server/server.js
-```
 
 ---
 
