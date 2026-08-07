@@ -6,8 +6,9 @@ x-casaos:
     - arm64
   main: amplifica-app
   author: Werik Oliveira
-  category: Business & Marketing
+  category: Business
   icon: https://raw.githubusercontent.com/WerikoEntusiasta/amplifica-marketing/main/public/logo-new.png
+  thumbnail: https://raw.githubusercontent.com/WerikoEntusiasta/amplifica-marketing/main/public/logo-new.png
   title:
     en_us: Amplifica Marketing
     pt_br: Amplifica Marketing
@@ -15,7 +16,7 @@ x-casaos:
     en_us: Institutional Website & Blog REST API
     pt_br: Site Institucional & Blog REST API
   description:
-    en_us: Amplifica Marketing agency website featuring 3D portfolio gallery, lofi music, independent blog, and SQLite REST API.
+    en_us: Amplifica Marketing agency website featuring 3D video gallery, lofi background music, independent blog, and SQLite REST API.
     pt_br: Site institucional da agência Amplifica Marketing com galeria 3D, música lofi, blog independente e REST API SQLite3.
   index: /
   port_map: "3001"
@@ -23,12 +24,9 @@ x-casaos:
 
 services:
   amplifica-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: werikoliveira/amplificagroup:latest
     container_name: amplifica-marketing-zimaos
-    restart: always
+    restart: unless-stopped
     ports:
       - "3001:3001"
     environment:
@@ -36,7 +34,7 @@ services:
       - NODE_ENV=production
       - API_KEY=${API_KEY:-amplifica_sec_key_991951381_2026}
     volumes:
-      - sqlite_data:/app/server/data
+      - /DATA/AppData/amplifica-marketing/data:/app/server/data
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/posts', (r) => { if (r.statusCode !== 200) process.exit(1); })"]
       interval: 30s
@@ -45,6 +43,10 @@ services:
       start_period: 10s
     x-casaos:
       envs:
+        - container: PORT
+          description:
+            en_us: Server Port (Default 3001)
+            pt_br: Porta do Servidor (Padrão 3001)
         - container: API_KEY
           description:
             en_us: Secret API Key for REST API write endpoints (POST, PUT, DELETE)
@@ -57,9 +59,5 @@ services:
       volumes:
         - container: /app/server/data
           description:
-            en_us: SQLite Database Persistent Storage
-            pt_br: Armazenamento Persistente do Banco de Dados SQLite3
-
-volumes:
-  sqlite_data:
-    driver: local
+            en_us: SQLite Database Storage (/DATA/AppData/amplifica-marketing/data)
+            pt_br: Armazenamento do Banco SQLite (/DATA/AppData/amplifica-marketing/data)
