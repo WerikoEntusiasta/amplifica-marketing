@@ -1,0 +1,34 @@
+# Amplifica Marketing
+
+> Agência de Marketing Digital especializada em Tráfego Pago, Gestão de Redes Sociais, Websites, Automação B2B, SEO e Produções Audiovisuais com Drone 4K.
+
+## Visão Geral
+- **Fundador**: Werik Oliveira (@recwerikoliveira)
+- **Instagram da Agência**: [@amplificamarketing](https://instagram.com/amplificamarketing)
+- **Instagram do Fundador**: [@recwerikoliveira](https://instagram.com/recwerikoliveira)
+- **WhatsApp Direto**: [+55 (17) 99195-1381](https://wa.me/5517991951381)
+- **E-mail**: contato@amplificamkt.com.br
+- **Atendimento**: Brasil & São Paulo
+
+## Soluções & Serviços
+1. **Gerenciamento de Redes Sociais**: Linha editorial autoral, criação visual e gestão de comunidade no Instagram, TikTok e Facebook.
+2. **Tráfego Pago (Google Ads & Meta Ads)**: Otimização diária de ROAS e captação diária de clientes qualificados.
+3. **Criação de Websites & Landing Pages**: Desenvolvimento de sites ultra-rápidos com estrutura focada em alta conversão.
+4. **Sistemas de Gestão & Automação B2B**: Chatbots de atendimento no WhatsApp, CRM e controle de leads.
+5. **Automação de Blogs & SEO**: Produção e publicação estratégica de artigos para ranqueamento orgânico no Google.
+6. **Design Gráfico & Mídias de Impacto**: Artes profissionais para mídias digitais, materiais impressos e painéis LED comerciais.
+7. **Vídeos Solos & Drone 4K**: Gravações institucionais em estúdio ou campo combinadas com filmagens aéreas de drone em 4K.
+
+## Recursos Disponíveis
+- [Website Oficial](https://amplificamarketing.com.br/)
+- [Blog de Conteúdo & Insights](https://amplificamarketing.com.br/#blog)
+- [REST API do Blog](https://amplificamarketing.com.br/api/posts)
+- [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)
+- [Repositório Open-Source](https://github.com/WerikoEntusiasta/amplifica-marketing)
+
+## REST API (Endings)
+- `GET /api/posts`: Retorna todos os artigos do blog
+- `GET /api/posts/:id`: Retorna os detalhes de um artigo por ID
+- `POST /api/posts`: Cria um artigo (requer API Key no header `x-api-key`)
+- `PUT /api/posts/:id`: Edita um artigo (requer API Key)
+- `DELETE /api/posts/:id`: Remove um artigo (requer API Key)
