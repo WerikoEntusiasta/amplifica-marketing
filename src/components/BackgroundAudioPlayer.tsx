@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Volume2, VolumeX, Music, Play, Pause } from 'lucide-react';
+import { VolumeX, Pause, Play } from 'lucide-react';
 
 export default function BackgroundAudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPausedForVideo, setIsPausedForVideo] = useState(false);
+  const [userWantsPaused, setUserWantsPaused] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -15,6 +16,7 @@ export default function BackgroundAudioPlayer() {
 
     // Function to attempt audio playback
     const startAudio = () => {
+      if (userWantsPaused) return;
       if (audioRef.current && audioRef.current.paused) {
         audioRef.current.volume = 0.20;
         audioRef.current
@@ -29,17 +31,20 @@ export default function BackgroundAudioPlayer() {
       }
     };
 
-    // Listen for first user interaction anywhere on the page to start background audio
+    // Listen for user interaction to start background audio unless user manually paused
     const handleUserGesture = () => {
-      startAudio();
+      if (!userWantsPaused) {
+        startAudio();
+      }
     };
 
     window.addEventListener('click', handleUserGesture, { once: true });
     window.addEventListener('touchstart', handleUserGesture, { once: true });
-    window.addEventListener('scroll', handleUserGesture, { once: true });
 
     // Monitor all video elements to pause background audio when unmuted video plays
     const checkVideoState = () => {
+      if (userWantsPaused) return;
+
       const videos = Array.from(document.querySelectorAll('video'));
       const activeUnmutedVideo = videos.find(
         (v) => !v.paused && !v.muted && v.volume > 0 && v.readyState >= 2
@@ -51,7 +56,7 @@ export default function BackgroundAudioPlayer() {
           setIsPausedForVideo(true);
         }
       } else {
-        if (isPausedForVideo && audioRef.current && audioRef.current.paused && isPlaying) {
+        if (isPausedForVideo && audioRef.current && audioRef.current.paused && !userWantsPaused) {
           audioRef.current.volume = 0.20;
           audioRef.current
             .play()
@@ -69,19 +74,23 @@ export default function BackgroundAudioPlayer() {
       clearInterval(interval);
       window.removeEventListener('click', handleUserGesture);
       window.removeEventListener('touchstart', handleUserGesture);
-      window.removeEventListener('scroll', handleUserGesture);
     };
-  }, [isPausedForVideo, isPlaying]);
+  }, [isPausedForVideo, isPlaying, userWantsPaused]);
 
-  const togglePlay = () => {
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const audio = audioRef.current;
     if (!audio) return;
 
     if (isPlaying) {
+      // User explicitly clicked Pause
       audio.pause();
       setIsPlaying(false);
       setIsPausedForVideo(false);
+      setUserWantsPaused(true);
     } else {
+      // User explicitly clicked Play
+      setUserWantsPaused(false);
       audio.volume = 0.20;
       audio
         .play()
@@ -115,6 +124,7 @@ export default function BackgroundAudioPlayer() {
               : 'bg-[#0C0C10]/85 border-white/10 text-zinc-300 hover:text-white hover:border-white/30'
           }`}
           title="Música de Fundo Lofi Chill (20% Volume)"
+          aria-label={isPlaying ? 'Pausar música de fundo' : 'Tocar música de fundo'}
         >
           <div className="w-8 h-8 rounded-full neu-well flex items-center justify-center text-[#FF6B00] shrink-0">
             {isPausedForVideo ? (
@@ -135,7 +145,7 @@ export default function BackgroundAudioPlayer() {
                 <span className="text-amber-400 font-semibold">Priorizando Vídeo</span>
               ) : isPlaying ? (
                 <>
-                  <span className="text-[#FF8A33]">Volume 20%</span>
+                  <span className="text-[#FF8A33]">TOCANDO • 20%</span>
                   <span className="flex items-end gap-0.5 h-3">
                     <span className="w-0.5 bg-[#FF6B00] h-full animate-pulse" />
                     <span className="w-0.5 bg-[#FF6B00] h-2 animate-pulse" />
@@ -143,7 +153,7 @@ export default function BackgroundAudioPlayer() {
                   </span>
                 </>
               ) : (
-                <span>Clique para Ouvir Lofi (20%)</span>
+                <span>PAUSADO (Clique p/ Ouvir)</span>
               )}
             </span>
           </div>

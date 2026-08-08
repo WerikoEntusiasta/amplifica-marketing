@@ -80,12 +80,6 @@ export default function ContactFooter() {
                   <span>WhatsApp: +55 (17) 99195-1381</span>
                 </a>
               </li>
-              <li>
-                <a href="mailto:contato@amplificamkt.com.br" className="flex items-center gap-2 hover:text-[#FF6B00] transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
-                  <span>contato@amplificamkt.com.br</span>
-                </a>
-              </li>
               <li className="flex items-center gap-2 text-zinc-400">
                 <MapPin className="w-3.5 h-3.5 text-[#8B5CF6]" />
                 <span>São Paulo & Região (Atendimento Brasil)</span>
