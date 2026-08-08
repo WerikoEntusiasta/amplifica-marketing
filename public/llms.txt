@@ -20,6 +20,7 @@
 
 ## Recursos Disponíveis
 - [Website Oficial](https://amplificagroup.com/)
+- [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/)
 - [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
 - [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)

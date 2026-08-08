@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: 'Serviços', href: '#servicos', page: 'home' },
   { label: 'Portfólio', href: '#portfolio', page: 'home' },
   { label: 'Sobre', href: '#sobre', page: 'home' },
+  { label: 'Planner ↗', href: 'https://planner.amplificagroup.com/', page: 'external' },
   { label: 'Blog', href: '#blog', page: 'blog' },
   { label: 'Contato', href: '#contato', page: 'home' },
 ];
@@ -52,6 +53,11 @@ export default function Navbar({ onOpenBlog, onGoHome, currentPage = 'home' }: N
 
   const handleNavClick = (item: typeof NAV_ITEMS[0]) => {
     setActiveNav(item.label);
+    if (item.page === 'external') {
+      window.open(item.href, '_blank', 'noopener,noreferrer');
+      setMobileOpen(false);
+      return;
+    }
     if (item.page === 'blog') {
       if (onOpenBlog) onOpenBlog();
     } else {

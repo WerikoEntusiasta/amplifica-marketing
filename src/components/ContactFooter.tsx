@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function ContactFooter() {
   const whatsappUrl = "https://wa.me/5517991951381?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Amplifica%20Marketing%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento!";
@@ -87,10 +87,23 @@ export default function ContactFooter() {
             </ul>
           </div>
 
-          {/* Official Social Links */}
+          {/* Official Social & Tools Links */}
           <div className="space-y-2.5">
-            <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">Siga nas Redes</h4>
+            <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">Redes & Ferramentas</h4>
             <div className="space-y-2">
+              <a
+                href="https://planner.amplificagroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-2.5 rounded-xl neu-well hover:border-[#FF6B00] transition-colors text-xs text-zinc-300 group"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
+                  <span>Amplifica Planner (Conteúdo)</span>
+                </div>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FF6B00] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+
               <a
                 href="https://instagram.com/amplificamarketing"
                 target="_blank"
