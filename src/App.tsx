@@ -17,7 +17,11 @@ function App() {
     const handleHash = () => {
       if (window.location.hash === '#blog') {
         setCurrentPage('blog')
+        document.title = 'Blog & Insights | Amplifica Marketing'
         window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        setCurrentPage('home')
+        document.title = 'Amplifica Marketing | Agência de Marketing Digital & Performance'
       }
     }
     handleHash()
@@ -27,12 +31,14 @@ function App() {
 
   const openBlog = () => {
     setCurrentPage('blog')
+    document.title = 'Blog & Insights | Amplifica Marketing'
     window.location.hash = 'blog'
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const goHome = () => {
     setCurrentPage('home')
+    document.title = 'Amplifica Marketing | Agência de Marketing Digital & Performance'
     if (window.location.hash === '#blog') {
       window.location.hash = ''
     }
