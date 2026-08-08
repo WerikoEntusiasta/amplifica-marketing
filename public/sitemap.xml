@@ -4,9 +4,9 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Página Principal -->
+  <!-- Página Principal (Home & Serviços) -->
   <url>
-    <loc>https://amplificamarketing.com.br/</loc>
+    <loc>https://amplificagroup.com/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,23 +14,23 @@
 
   <!-- Seção de Serviços -->
   <url>
-    <loc>https://amplificamarketing.com.br/#servicos</loc>
+    <loc>https://amplificagroup.com/#servicos</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Portfólio de Vídeos 3D -->
+  <!-- Portfólio Audiovisual 3D -->
   <url>
-    <loc>https://amplificamarketing.com.br/#portfolio</loc>
+    <loc>https://amplificagroup.com/#portfolio</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Quem Somos & Fundador -->
+  <!-- Sobre a Amplifica & Fundador -->
   <url>
-    <loc>https://amplificamarketing.com.br/#sobre</loc>
+    <loc>https://amplificagroup.com/#sobre</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,15 +38,15 @@
 
   <!-- Contato & WhatsApp -->
   <url>
-    <loc>https://amplificamarketing.com.br/#contato</loc>
+    <loc>https://amplificagroup.com/#contato</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog Independente -->
+  <!-- Blog & Insights -->
   <url>
-    <loc>https://amplificamarketing.com.br/#blog</loc>
+    <loc>https://amplificagroup.com/#blog</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

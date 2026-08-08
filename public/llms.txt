@@ -1,4 +1,4 @@
-# Amplifica Marketing
+# Amplifica Marketing (Amplifica Group)
 
 > Agência de Marketing Digital especializada em Tráfego Pago, Gestão de Redes Sociais, Websites, Automação B2B, SEO e Produções Audiovisuais com Drone 4K.
 
@@ -20,13 +20,13 @@
 7. **Vídeos Solos & Drone 4K**: Gravações institucionais em estúdio ou campo combinadas com filmagens aéreas de drone em 4K.
 
 ## Recursos Disponíveis
-- [Website Oficial](https://amplificamarketing.com.br/)
-- [Blog de Conteúdo & Insights](https://amplificamarketing.com.br/#blog)
-- [REST API do Blog](https://amplificamarketing.com.br/api/posts)
+- [Website Oficial](https://amplificagroup.com/)
+- [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
+- [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)
 - [Repositório Open-Source](https://github.com/WerikoEntusiasta/amplifica-marketing)
 
-## REST API (Endings)
+## REST API (Endpoints)
 - `GET /api/posts`: Retorna todos os artigos do blog
 - `GET /api/posts/:id`: Retorna os detalhes de um artigo por ID
 - `POST /api/posts`: Cria um artigo (requer API Key no header `x-api-key`)
