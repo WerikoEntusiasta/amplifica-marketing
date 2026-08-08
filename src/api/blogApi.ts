@@ -1,6 +1,7 @@
 import { BlogArticle } from '../data/blogArticles';
 
-const API_BASE_URL = 'http://localhost:3001/api/posts';
+// Dynamic API Base URL (Relative path /api/posts works on Docker, ZimaOS, Railway, and localhost production)
+const API_BASE_URL = '/api/posts';
 const LOCAL_STORAGE_KEY = 'amplifica_blog_posts';
 
 const getLocalPosts = (): BlogArticle[] => {
@@ -21,12 +22,20 @@ const saveLocalPosts = (posts: BlogArticle[]) => {
 // GET /api/posts - Fetch all articles
 export async function fetchBlogPosts(): Promise<BlogArticle[]> {
   try {
-    const response = await fetch(API_BASE_URL);
+    let response = await fetch(API_BASE_URL);
+    if (!response.ok && window.location.port !== '3001') {
+      // Fallback try port 3001 explicitly if running frontend separately
+      response = await fetch(`http://${window.location.hostname}:3001/api/posts`);
+    }
     if (!response.ok) throw new Error('API server error');
     const posts = await response.json();
-    saveLocalPosts(posts);
+    if (Array.isArray(posts) && posts.length > 0) {
+      saveLocalPosts(posts);
+      return posts;
+    }
     return posts;
-  } catch {
+  } catch (err) {
+    console.warn('API fetch warning, loading local persistence:', err);
     // Fallback to local persistence
     return getLocalPosts();
   }
