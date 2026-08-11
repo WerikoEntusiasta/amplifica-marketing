@@ -23,19 +23,57 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const API_KEY = process.env.API_KEY || 'amplifica_sec_key_991951381_2026';
 
-// 1. Security Headers (Helmet) & Disable X-Powered-By
+// 1. Security Headers (Helmet with strict CSP, Strict-Transport-Security, and No-Sniff)
 app.use(helmet({
-  contentSecurityPolicy: false,
-  crossOriginResourcePolicy: { policy: "cross-origin" }
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'", "https://cdn.jsdelivr.net"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+      imgSrc: ["'self'", "data:", "https:", "blob:"],
+      mediaSrc: ["'self'", "https://stream.mux.com", "blob:"],
+      connectSrc: ["'self'", "https://stream.mux.com", "https://api.github.com"],
+      frameSrc: ["'none'"],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+      formAction: ["'self'", "https://wa.me"],
+      upgradeInsecureRequests: [],
+    },
+  },
+  crossOriginResourcePolicy: { policy: "same-origin" },
+  crossOriginEmbedderPolicy: false,
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+  hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
 }));
 app.disable('x-powered-by');
 
-// 2. Strict CORS Configuration
-app.use(cors({
-  origin: '*',
+// 2. Strict Origin-Restricted CORS for API Endpoints Only (No wildcard *, No CORS on static assets)
+const allowedOrigins = [
+  'https://amplificagroup.com',
+  'https://www.amplificagroup.com',
+  'https://planner.amplificagroup.com',
+  'http://localhost:5173',
+  'http://localhost:3001'
+];
+
+const apiCorsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, cURL, server-to-server) or allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origem não permitida pela política de CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key']
-}));
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key'],
+  credentials: true,
+  maxAge: 86400 // Cache preflight for 24 hours
+};
+
+// Apply CORS strictly to /api/ routes
+app.use('/api/', cors(apiCorsOptions));
 
 // 3. IP Rate Limiting (Anti-DDoS / Anti-Brute Force)
 const apiLimiter = rateLimit({
@@ -231,12 +269,24 @@ app.delete('/api/posts/:id', verifyApiKey, (req, res) => {
   }
 });
 
-// Serve production static frontend build if dist folder exists (Compatible with Express 4 & Express 5 / path-to-regexp v8)
+// Serve production static frontend build with optimized Cache-Control headers
 const distPath = path.join(__dirname, '..', 'dist');
 if (fs.existsSync(distPath)) {
-  app.use(express.static(distPath));
+  app.use(express.static(distPath, {
+    setHeaders: (res, filePath) => {
+      // Hashed assets in /assets/ get long-term immutable caching
+      if (filePath.includes(path.join('dist', 'assets'))) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else {
+        // HTML, sitemap, robots, manifest get no-cache
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      }
+    }
+  }));
+
   app.use((req, res, next) => {
     if (req.path.startsWith('/api/')) return next();
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.sendFile(path.join(distPath, 'index.html'));
   });
 }
