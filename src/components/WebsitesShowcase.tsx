@@ -32,7 +32,7 @@ const WEBSITES: WebsiteProject[] = [
     category: 'Agência de Marketing & Performance',
     description: 'Plataforma oficial da agência com animações 3D, galeria audiovisual, blog dinâmico e integração com REST API.',
     tags: ['React 19', 'Vite', 'REST API', 'Design Ultra-Moderno'],
-    image: '/logo-new.png',
+    image: '/websites/amplificagroup.png',
   },
   {
     id: 'agropasi',
@@ -42,6 +42,7 @@ const WEBSITES: WebsiteProject[] = [
     category: 'Agronegócio & Soluções Agrícolas',
     description: 'Portal institucional para o setor do agronegócio, destacando produtos, linhas de atendimento e captação de clientes.',
     tags: ['Agronegócio', 'Alta Velocidade', 'SEO Otimizado'],
+    image: '/websites/agropasi.png',
   },
   {
     id: 'pasilux',
