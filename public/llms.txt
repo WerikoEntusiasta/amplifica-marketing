@@ -25,9 +25,11 @@
 - **Fundiferro Formas**: [fundiferroformas.com.br](https://fundiferroformas.com.br/) (Indústria & Metalurgia)
 - **Panossi Estruturas Metálicas**: [panossiestruturasmetalicas.com.br](https://panossiestruturasmetalicas.com.br/) (Engenharia & Estruturas)
 
-## Recursos Disponíveis
+## Recursos & Sistemas Próprios
 - [Website Oficial](https://amplificagroup.com/)
 - [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/)
+- [Amplifica AdPilot — Gestão & Otimização de Anúncios](https://adpilot.amplificagroup.com/)
+- [Apresentação Executiva & Cases](https://amplificagroup.com/#apresentacao)
 - [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
 - [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)

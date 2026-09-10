@@ -5,6 +5,7 @@ import TechStackMarquee from './components/TechStackMarquee'
 import ServicesBento from './components/ServicesBento'
 import Video3DCoverflow from './components/Video3DCoverflow'
 import ArtPortfolioGallery from './components/ArtPortfolioGallery'
+import SystemsShowcase from './components/SystemsShowcase'
 import WebsitesShowcase from './components/WebsitesShowcase'
 import About from './components/About'
 import ContactFooter from './components/ContactFooter'
@@ -68,6 +69,7 @@ function App() {
           <ServicesBento />
           <Video3DCoverflow />
           <ArtPortfolioGallery />
+          <SystemsShowcase />
           <WebsitesShowcase />
           <About />
           <ContactFooter />
