@@ -18,6 +18,13 @@
 6. **Design Gráfico & Mídias de Impacto**: Artes profissionais para mídias digitais, materiais impressos e painéis LED comerciais.
 7. **Vídeos Solos & Drone 4K**: Gravações institucionais em estúdio ou campo combinadas com filmagens aéreas de drone em 4K.
 
+## Websites Desenvolvidos & Cases
+- **Amplifica Group**: [amplificagroup.com](https://amplificagroup.com/) (Agência & Performance)
+- **Agro Pasi**: [agropasi.com.br](https://agropasi.com.br/) (Agronegócio)
+- **Pasilux**: [pasilux.com.br](https://pasilux.com.br/) (Iluminação & Elétrica)
+- **Fundiferro Formas**: [fundiferroformas.com.br](https://fundiferroformas.com.br/) (Indústria & Metalurgia)
+- **Panossi Estruturas Metálicas**: [panossiestruturasmetalicas.com.br](https://panossiestruturasmetalicas.com.br/) (Engenharia & Estruturas)
+
 ## Recursos Disponíveis
 - [Website Oficial](https://amplificagroup.com/)
 - [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/)
