@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import TechStackMarquee from './components/TechStackMarquee'
 import ServicesBento from './components/ServicesBento'
 import Video3DCoverflow from './components/Video3DCoverflow'
+import ArtPortfolioGallery from './components/ArtPortfolioGallery'
 import About from './components/About'
 import ContactFooter from './components/ContactFooter'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -57,6 +58,7 @@ function App() {
           <TechStackMarquee />
           <ServicesBento />
           <Video3DCoverflow />
+          <ArtPortfolioGallery />
           <About />
           <ContactFooter />
         </main>
