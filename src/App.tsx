@@ -11,15 +11,21 @@ import ContactFooter from './components/ContactFooter'
 import WhatsAppButton from './components/WhatsAppButton'
 import BackgroundAudioPlayer from './components/BackgroundAudioPlayer'
 import BlogPage from './pages/BlogPage'
+import PitchDeckPage from './pages/PitchDeckPage'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'blog'>('home')
+  const [currentPage, setCurrentPage] = useState<'home' | 'blog' | 'pitch'>('home')
 
   useEffect(() => {
     const handleHash = () => {
-      if (window.location.hash === '#blog') {
+      const hash = window.location.hash.toLowerCase()
+      if (hash === '#blog') {
         setCurrentPage('blog')
         document.title = 'Blog & Insights | Amplifica Marketing'
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (hash === '#apresentacao' || hash === '#deck' || hash === '#pitch' || hash === '#cases') {
+        setCurrentPage('pitch')
+        document.title = 'Apresentação Executiva & Cases | Amplifica Group'
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         setCurrentPage('home')
@@ -41,7 +47,7 @@ function App() {
   const goHome = () => {
     setCurrentPage('home')
     document.title = 'Amplifica Marketing | Agência de Marketing Digital & Performance'
-    if (window.location.hash === '#blog') {
+    if (window.location.hash === '#blog' || window.location.hash === '#apresentacao' || window.location.hash === '#deck') {
       window.location.hash = ''
     }
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -49,10 +55,12 @@ function App() {
 
   return (
     <>
-      <Navbar onOpenBlog={openBlog} onGoHome={goHome} currentPage={currentPage} />
+      <Navbar onOpenBlog={openBlog} onGoHome={goHome} currentPage={currentPage === 'pitch' ? 'home' : currentPage} />
       
       {currentPage === 'blog' ? (
         <BlogPage onBackToHome={goHome} />
+      ) : currentPage === 'pitch' ? (
+        <PitchDeckPage onGoHome={goHome} />
       ) : (
         <main>
           <Hero />
