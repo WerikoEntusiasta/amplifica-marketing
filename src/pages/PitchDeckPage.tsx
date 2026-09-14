@@ -94,9 +94,9 @@ const REVENTA_SERVICES = [
 ];
 
 const PACOTES_ARTE = [
-  { freq: '1 por semana', price: 'R$ 150,00', period: '/mês', detail: '4 artes profissionais por mês para feed/stories' },
-  { freq: '2 por semana', price: 'R$ 250,00', period: '/mês', detail: '8 artes profissionais por mês para feed/stories' },
-  { freq: '3 por semana', price: 'R$ 350,00', period: '/mês', detail: '12 artes profissionais por mês para feed/stories' },
+  { freq: '1 por semana', price: 'R$ 100,00', period: '/mês', detail: '4 artes profissionais por mês para feed/stories' },
+  { freq: '2 por semana', price: 'R$ 200,00', period: '/mês', detail: '8 artes profissionais por mês para feed/stories' },
+  { freq: '3 por semana', price: 'R$ 300,00', period: '/mês', detail: '12 artes profissionais por mês para feed/stories' },
 ];
 
 const PACOTES_VIDEO = [
