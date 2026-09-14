@@ -15,7 +15,6 @@ import {
   Sparkles,
   Camera,
   Layers,
-  CheckCircle2,
 } from 'lucide-react';
 import Video3DCoverflow from '../components/Video3DCoverflow';
 import ArtPortfolioGallery from '../components/ArtPortfolioGallery';
@@ -101,22 +100,34 @@ const PACOTES_ARTE = [
 
 const PACOTES_VIDEO = [
   {
-    title: 'Pacote Drone',
+    title: 'Pacote Drone (Gravação Externa)',
     price: 'R$ 300,00',
     desc: 'Até 40min de gravação com 1 único drone (somente ambiente externo).',
     tag: 'Filmagem Aérea',
   },
   {
-    title: 'Pacote Storymaker (Reels)',
+    title: 'Gravação Drone para Eventos',
+    price: 'R$ 100,00 / hora',
+    desc: 'Gravação e tomada de cenas aéreas exclusivas em eventos por hora.',
+    tag: 'Drone Eventos',
+  },
+  {
+    title: 'Drone + Storymaker Eventos',
+    price: 'R$ 150,00 / hora',
+    desc: 'Cobertura completa combinada de Drone 4K + Storymaker com celular para Reels e Stories.',
+    tag: 'Combo Eventos',
+  },
+  {
+    title: 'Pacote Storymaker (1 Vídeo Reels)',
     price: 'R$ 200,00',
-    desc: '1 vídeo gravado e editado para Reels (não cobre eventos).',
+    desc: '1 vídeo capturado e editado para Reels (não cobre eventos).',
     tag: '1 Vídeo Reels',
   },
   {
     title: 'Pacote Storymaker Evento (Por Hora)',
     price: 'R$ 100,00 / hora',
     desc: 'Mínimo de 4 horas de cobertura em eventos. (Abaixo de 4h = valor fixo de R$ 300,00).',
-    tag: 'Cobertura de Evento',
+    tag: 'Storymaker Evento',
   },
 ];
 
@@ -253,7 +264,7 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
             <p className="text-zinc-400 text-xs sm:text-sm">Filmagens de drone, reels avulsos e cobertura de eventos por hora</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PACOTES_VIDEO.map((v, i) => (
               <div key={i} className="p-6 rounded-2xl neu-well space-y-4 border border-white/10 hover:border-[#FF6B00]/50 transition-colors">
                 <div className="flex items-center justify-between">

@@ -24,9 +24,9 @@ function App() {
         setCurrentPage('blog')
         document.title = 'Blog & Insights | Amplifica Marketing'
         window.scrollTo({ top: 0, behavior: 'smooth' })
-      } else if (hash === '#apresentacao' || hash === '#deck' || hash === '#pitch' || hash === '#cases') {
+      } else if (hash === '#apresentacaoagencias' || hash === '#apresentacao-agencias' || hash === '#apresentacao' || hash === '#deck' || hash === '#pitch' || hash === '#cases') {
         setCurrentPage('pitch')
-        document.title = 'Apresentação Executiva & Cases | Amplifica Group'
+        document.title = 'Tabela de Revenda para Agências | Amplifica Group'
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else {
         setCurrentPage('home')
