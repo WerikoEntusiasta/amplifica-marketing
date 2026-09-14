@@ -193,18 +193,18 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
           <WebsitesShowcase />
         </div>
 
-        {/* 4. Portfólio de Design Gráfico (14 Artes Autorais) */}
-        <div className="border-t border-white/10 pt-12">
-          <ArtPortfolioGallery />
-        </div>
-
-        {/* 5. Portfólio Audiovisual Completo (67 Vídeos & Drone 4K) */}
+        {/* 4. Portfólio Audiovisual Completo (67 Vídeos & Drone 4K) */}
         <div className="border-t border-white/10 pt-12 space-y-4">
           <div className="border-l-4 border-[#8B5CF6] pl-4 mb-6">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Portfólio Audiovisual & Drone 4K</h2>
             <p className="text-zinc-400 text-xs sm:text-sm">67 produções de vídeo de alta definição por @recwerikoliveira para comprovar a qualidade aos seus clientes</p>
           </div>
           <Video3DCoverflow />
+        </div>
+
+        {/* 5. Portfólio de Design Gráfico (14 Artes Autorais) */}
+        <div className="border-t border-white/10 pt-12">
+          <ArtPortfolioGallery />
         </div>
 
         {/* Bottom CTA for Agencies */}
