@@ -27,9 +27,8 @@
 
 ## Recursos & Sistemas Próprios
 - [Website Oficial](https://amplificagroup.com/)
-- [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/)
-- [Amplifica AdPilot — Gestão & Otimização de Anúncios](https://adpilot.amplificagroup.com/)
-- [Apresentação Executiva & Cases](https://amplificagroup.com/#apresentacao)
+- [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/) (a partir de R$ 15,00)
+- [Apresentação Executiva & Tabela de Revenda para Agências](https://amplificagroup.com/#apresentacao)
 - [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
 - [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)

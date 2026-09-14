@@ -99,22 +99,9 @@ export default function ContactFooter() {
               >
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
-                  <span>Amplifica Planner (Conteúdo)</span>
+                  <span>Amplifica Planner (a partir de R$ 15,00)</span>
                 </div>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#FF6B00] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-
-              <a
-                href="https://adpilot.amplificagroup.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2.5 rounded-xl neu-well hover:border-[#8B5CF6] transition-colors text-xs text-zinc-300 group"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#8B5CF6] animate-pulse" />
-                  <span>Amplifica AdPilot (Tráfego Pago)</span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#8B5CF6] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               <a

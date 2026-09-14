@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, ArrowUpRight, Calendar, TrendingUp, Sparkles, Zap, ShieldCheck } from 'lucide-react';
+import { Cpu, ArrowUpRight, Calendar, Zap, ShieldCheck } from 'lucide-react';
 import BorderGlow from './BorderGlow';
 
 export interface SystemItem {
@@ -8,6 +8,7 @@ export interface SystemItem {
   url: string;
   domain: string;
   badge: string;
+  price: string;
   title: string;
   description: string;
   features: string[];
@@ -22,68 +23,56 @@ const SYSTEMS: SystemItem[] = [
     url: 'https://planner.amplificagroup.com/',
     domain: 'planner.amplificagroup.com',
     badge: 'Planejador de Conteúdo',
+    price: 'A partir de R$ 15,00',
     title: 'Gestão Editorial & Organização de Conteúdo para Agências',
-    description: 'Plataforma completa para planejamento de postagens, aprovação de materiais visuais e organização da linha editorial para marcas e agências.',
-    features: ['Calendário Editorial Inteligente', 'Aprovação de Artes em 1 Clique', 'Organização por Cliente'],
+    description: 'Plataforma completa para planejamento de postagens, aprovação de materiais visuais e organização da linha editorial para marcas e agências parceiras.',
+    features: ['Calendário Editorial Inteligente', 'Aprovação de Artes em 1 Clique', 'Organização por Cliente', 'Plano para Revenda de Agências'],
     icon: <Calendar className="w-6 h-6 text-[#FF6B00]" />,
     accent: '#FF6B00',
-  },
-  {
-    id: 'adpilot',
-    name: 'Amplifica AdPilot',
-    url: 'https://adpilot.amplificagroup.com/',
-    domain: 'adpilot.amplificagroup.com',
-    badge: 'Piloto Automático de Anúncios',
-    title: 'Gestão Inteligente & Otimização de Tráfego Pago',
-    description: 'Sistema proprietário para acompanhamento de performance, otimização automática de métricas (ROAS, CPA, CTR) e relatórios de anúncios no Google Ads e Meta Ads.',
-    features: ['Piloto Automático de Otimização', 'Painel de ROAS & Metas em Tempo Real', 'Relatórios Executivos Automáticos'],
-    icon: <TrendingUp className="w-6 h-6 text-[#8B5CF6]" />,
-    accent: '#8B5CF6',
   },
 ];
 
 export default function SystemsShowcase() {
   return (
-    <section id="sistemas" className="relative py-24 bg-[var(--bg)] overflow-hidden">
+    <section id="sistemas" className="relative py-16 bg-[var(--bg)] overflow-hidden">
       {/* Mesh Orbs */}
       <div className="mesh-orb-orange top-1/4 -left-20" />
-      <div className="mesh-orb-purple bottom-1/4 -right-20" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 space-y-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full neu-well text-xs text-[#FF6B00] uppercase tracking-wider font-semibold mb-4">
-              <Cpu className="w-4 h-4 text-[#FF6B00]" /> NOSSAS PLATAFORMAS & SISTEMAS PROPRIETÁRIOS
+              <Cpu className="w-4 h-4 text-[#FF6B00]" /> SISTEMA DE GESTÃO PARA AGÊNCIAS
             </div>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl text-[var(--text)] leading-tight">
-              Sistemas Desenvolvidos <br />
-              <span className="text-gradient">pela Amplifica Group</span>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-[var(--text)] leading-tight">
+              Amplifica Planner <br />
+              <span className="text-gradient">a partir de R$ 15,00</span>
             </h2>
           </div>
 
-          <p className="text-[var(--text-muted)] text-sm sm:text-base max-w-md leading-relaxed">
-            Criamos software proprietário para otimizar o planejamento de conteúdo e automatizar a gestão de tráfego pago de nossos clientes e parceiros.
+          <p className="text-[var(--text-muted)] text-sm max-w-md leading-relaxed">
+            Plataforma própria criada para agências parceiras organizarem entregas, cronogramas e aprovações de clientes com máxima eficiência.
           </p>
         </div>
 
         {/* Systems Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-3xl">
           {SYSTEMS.map((sys) => (
             <BorderGlow
               key={sys.id}
               edgeSensitivity={35}
-              glowColor={sys.id === 'planner' ? '24 100 50' : '260 85 65'}
+              glowColor="24 100 50"
               backgroundColor="var(--bg)"
               borderRadius={24}
               glowRadius={35}
               glowIntensity={1.1}
-              colors={sys.id === 'planner' ? ['#FF6B00', '#FF8A33', '#8B5CF6'] : ['#8B5CF6', '#A78BFA', '#FF6B00']}
+              colors={['#FF6B00', '#FF8A33', '#8B5CF6']}
             >
               <div className="p-8 sm:p-10 h-full flex flex-col justify-between space-y-8 bg-zinc-900/50 rounded-[22px] group">
                 <div className="space-y-6">
                   {/* Top Badge & Icon */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className="p-3 rounded-2xl neu-well flex items-center justify-center">
                         {sys.icon}
@@ -98,9 +87,11 @@ export default function SystemsShowcase() {
                       </div>
                     </div>
 
-                    <span className="px-3.5 py-1.5 rounded-full neu-well text-[10px] font-bold text-[#FF8A33] uppercase tracking-wider">
-                      {sys.badge}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-3.5 py-1.5 rounded-full bg-[#FF6B00]/20 border border-[#FF6B00]/40 text-xs font-extrabold text-[#FF6B00] uppercase tracking-wider">
+                        {sys.price}
+                      </span>
+                    </div>
                   </div>
 
                   <h4 className="font-bold text-base text-zinc-200 leading-snug">
@@ -112,7 +103,7 @@ export default function SystemsShowcase() {
                   </p>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-2.5 pt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                     {sys.features.map((feat, idx) => (
                       <div key={idx} className="flex items-center gap-2.5 text-xs font-semibold text-zinc-300">
                         <ShieldCheck className="w-4 h-4 text-[#FF6B00] flex-shrink-0" />

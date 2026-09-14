@@ -9,6 +9,10 @@ import {
   ArrowUpRight,
   Cpu,
   Zap,
+  ShoppingBag,
+  Search,
+  Tag,
+  Sparkles,
 } from 'lucide-react';
 import Video3DCoverflow from '../components/Video3DCoverflow';
 import ArtPortfolioGallery from '../components/ArtPortfolioGallery';
@@ -19,35 +23,92 @@ interface PitchDeckPageProps {
   onGoHome?: () => void;
 }
 
-const SERVICES = [
-  { icon: <Share2 className="w-5 h-5 text-[#FF6B00]" />, title: '01. Gestão de Redes Sociais', desc: 'Linha editorial autoral, design estratégico e presença diária no Instagram/TikTok.' },
-  { icon: <TrendingUp className="w-5 h-5 text-[#8B5CF6]" />, title: '02. Tráfego Pago (Google & Meta Ads)', desc: 'Campanhas focadas em ROAS e geração diária de leads qualificados.' },
-  { icon: <Globe className="w-5 h-5 text-[#FF6B00]" />, title: '03. Criação de Websites & Landing Pages', desc: 'Sites ultra-rápidos, responsivos e otimizados para mecanismos de busca (SEO).' },
-  { icon: <Cpu className="w-5 h-5 text-[#8B5CF6]" />, title: '04. Automação B2B & CRM WhatsApp', desc: 'Atendimento automatizado inteligente, integração de CRM e controle de leads.' },
-  { icon: <Palette className="w-5 h-5 text-[#FF6B00]" />, title: '05. Design Gráfico & Painéis LED', desc: 'Criação visual profissional para mídias digitais, impressos e painéis de LED comerciais.' },
-  { icon: <Video className="w-5 h-5 text-[#8B5CF6]" />, title: '06. Vídeos & Drone 4K', desc: 'Gravações institucionais em estúdio ou campo combinadas com filmagens aéreas de drone em 4K.' },
-  { icon: <Zap className="w-5 h-5 text-[#FF6B00]" />, title: '07. Automação de Blogs & SEO', desc: 'Sistemas automatizados de publicação contínua de conteúdo otimizado para o Google.' },
+const REVENTA_SERVICES = [
+  {
+    num: '01',
+    icon: <Share2 className="w-5 h-5 text-[#FF6B00]" />,
+    title: 'Gestão de Redes Sociais',
+    price: 'a partir de R$ 200,00',
+    desc: 'Linha editorial autoral, criação de artes estratégicas e presença diária para seus clientes.',
+    tag: 'Mensal por Cliente',
+  },
+  {
+    num: '02',
+    icon: <TrendingUp className="w-5 h-5 text-[#8B5CF6]" />,
+    title: 'Tráfego Pago (Google & Meta Ads)',
+    price: 'a partir de R$ 500,00',
+    desc: 'Gestão e otimização de anúncios com foco em conversão e geração diária de leads qualificados.',
+    tag: 'Mensal por Cliente',
+  },
+  {
+    num: '03',
+    icon: <Globe className="w-5 h-5 text-[#FF6B00]" />,
+    title: 'Website Simples (Estilo Landing Page)',
+    price: 'R$ 1.000,00',
+    desc: 'Landing page responsiva de alta velocidade, ultra-moderna e otimizada para conversão.',
+    tag: 'Projeto Único',
+  },
+  {
+    num: '04',
+    icon: <ShoppingBag className="w-5 h-5 text-[#8B5CF6]" />,
+    title: 'Website E-Commerce ou Site Completo',
+    price: 'R$ 2.000,00',
+    desc: 'Loja virtual completa ou website institucional robusto com múltiplos módulos e páginas.',
+    tag: 'Projeto Único',
+  },
+  {
+    num: '05',
+    icon: <Cpu className="w-5 h-5 text-[#FF6B00]" />,
+    title: 'Automação B2B e CRM de WhatsApp',
+    price: 'a partir de R$ 500,00',
+    desc: 'Atendimento automatizado inteligente via WhatsApp, integração de CRM e funil de atendimento.',
+    tag: 'Implementação / Mensal',
+  },
+  {
+    num: '06',
+    icon: <Palette className="w-5 h-5 text-[#8B5CF6]" />,
+    title: 'Artes para Redes Sociais ou Painéis de LED',
+    price: 'a partir de R$ 50,00',
+    desc: 'Design gráfico autoral em alta resolução para feed, stories, impressos e painéis de LED comerciais.',
+    tag: 'Por Unidade / Pacote',
+  },
+  {
+    num: '07',
+    icon: <Video className="w-5 h-5 text-[#FF6B00]" />,
+    title: 'Vídeo Celular ou Drone 4K',
+    price: 'a partir de R$ 250,00',
+    desc: 'Gravações em alta definição para reels/comerciais e capturas aéreas institucionais em drone 4K.',
+    tag: 'Por Produção',
+  },
+  {
+    num: '08',
+    icon: <Search className="w-5 h-5 text-[#8B5CF6]" />,
+    title: 'SEO & Otimização no Google (Sites criados com IA)',
+    price: 'R$ 450,00',
+    desc: 'Indexação profissional no Google, estrutura de sitemap, metadados e correção de SEO para sites IA.',
+    tag: 'Otimização Única',
+  },
 ];
 
 export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
-  const whatsappUrl = "https://wa.me/5517991951381?text=Ol%C3%A1%2C%20acessei%20o%20portf%C3%B3lio%20da%20Amplifica%20Group%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento!";
+  const whatsappUrl = "https://wa.me/5517991951381?text=Ol%C3%A1%2C%20sou%20de%20uma%20ag%C3%AAncia%20e%20gostaria%20de%20revender%20os%20servi%C3%A7os%20da%20Amplifica%20Group!";
 
   return (
     <div className="min-h-screen bg-[#050507] text-white selection:bg-[#FF6B00] selection:text-white pt-10 pb-20">
       {/* Ambient Glow Background */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-r from-[#FF6B00]/15 via-[#8B5CF6]/15 to-transparent blur-[140px] pointer-events-none z-0" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-r from-[#FF6B00]/15 via-[#8B5CF6]/15 to-transparent blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 space-y-16">
         
-        {/* Clean Direct Top Bar (NO Menu) */}
+        {/* Top Header Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl neu-well flex items-center justify-center p-1.5">
+            <div className="w-11 h-11 rounded-2xl neu-well flex items-center justify-center p-1.5">
               <img src="/logo-new.png" alt="Amplifica Group" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="font-display font-bold text-xl tracking-widest text-white block">AMPLIFICA GROUP</span>
-              <span className="text-[10px] font-bold text-[#FF6B00] uppercase tracking-wider block">Portfólio Oficial & Lista de Serviços</span>
+              <span className="text-[10px] font-extrabold text-[#FF6B00] uppercase tracking-wider block">Tabela B2B de Revenda para Agências</span>
             </div>
           </div>
 
@@ -55,35 +116,74 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2"
+            className="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow-[0_10px_25px_rgba(37,211,102,0.35)] transition-all hover:scale-105 flex items-center gap-2"
           >
-            <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />
-            <span>Falar no WhatsApp</span>
+            <MessageCircle className="w-4.5 h-4.5 fill-white text-[#25D366]" />
+            <span>Quero Revender (Falar no WhatsApp)</span>
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
 
-        {/* 1. Lista Pura dos 7 Serviços */}
-        <div className="space-y-6">
-          <div className="border-l-4 border-[#FF6B00] pl-4">
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Lista de Serviços</h2>
-            <p className="text-zinc-400 text-xs sm:text-sm">Nossas 7 soluções de marketing, design, tecnologia e audiovisual</p>
+        {/* Hero Pricing Header */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto pt-2">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-well text-xs text-[#FF6B00] font-bold uppercase tracking-wider">
+            <Tag className="w-4 h-4 text-[#FF6B00]" /> PARCERIA & REVENDA WHITE LABEL PARA AGÊNCIAS
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICES.map((s, i) => (
-              <div key={i} className="p-5 rounded-2xl neu-well space-y-2 border border-white/10 hover:border-white/20 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-zinc-900 border border-white/10">{s.icon}</div>
-                  <h3 className="font-bold text-sm text-white">{s.title}</h3>
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+            Tabela de Serviços & Preços <br />
+            <span className="text-gradient">para Agências Revenderem</span>
+          </h1>
+
+          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Terceirize a execução de redes sociais, tráfego pago, desenvolvimento web, vídeos e SEO com a infraestrutura da Amplifica Group e aumente a margem da sua agência.
+          </p>
+        </div>
+
+        {/* 1. Tabela de Preços de Revenda B2B */}
+        <div className="space-y-6">
+          <div className="border-l-4 border-[#FF6B00] pl-4">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Tabela de Serviços & Valores</h2>
+            <p className="text-zinc-400 text-xs sm:text-sm">Valores exclusivos para parceiros e revendedores B2B</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {REVENTA_SERVICES.map((s) => (
+              <div
+                key={s.num}
+                className="p-6 rounded-2xl neu-well flex flex-col justify-between space-y-4 border border-white/10 hover:border-[#FF6B00]/40 transition-all duration-300 group"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10">
+                      {s.icon}
+                    </div>
+                    <span className="text-[10px] font-bold text-zinc-400 neu-well px-2.5 py-0.5 rounded-md uppercase">
+                      {s.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="font-bold text-sm text-white group-hover:text-[#FF8A33] transition-colors leading-snug">
+                    {s.title}
+                  </h3>
+
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed pl-1">{s.desc}</p>
+
+                <div className="pt-3 border-t border-white/10">
+                  <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider block">Preço de Revenda:</span>
+                  <span className="font-display font-extrabold text-lg sm:text-xl text-[#FF6B00] block mt-0.5">
+                    {s.price}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* 2. Nossos Sistemas Proprietários (Planner & AdPilot) */}
+        {/* 2. Sistema Proprietário (Amplifica Planner a partir de R$ 15,00) */}
         <div className="border-t border-white/10 pt-12">
           <SystemsShowcase />
         </div>
@@ -102,14 +202,19 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
         <div className="border-t border-white/10 pt-12 space-y-4">
           <div className="border-l-4 border-[#8B5CF6] pl-4 mb-6">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Portfólio Audiovisual & Drone 4K</h2>
-            <p className="text-zinc-400 text-xs sm:text-sm">67 produções de vídeo de alta definição por @recwerikoliveira</p>
+            <p className="text-zinc-400 text-xs sm:text-sm">67 produções de vídeo de alta definição por @recwerikoliveira para comprovar a qualidade aos seus clientes</p>
           </div>
           <Video3DCoverflow />
         </div>
 
-        {/* Clean Direct Bottom Action */}
-        <div className="text-center pt-10 border-t border-white/10 space-y-4">
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">Solicite um Orçamento Direto</h2>
+        {/* Bottom CTA for Agencies */}
+        <div className="text-center pt-10 border-t border-white/10 space-y-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-well text-xs text-[#25D366] font-bold uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-[#25D366]" /> SEJA UMA AGÊNCIA PARCEIRA DA AMPLIFICA GROUP
+          </div>
+
+          <h2 className="font-display font-bold text-2xl sm:text-4xl text-white">Pronto para revender e escalar sua agência?</h2>
+          
           <div>
             <a
               href={whatsappUrl}
@@ -118,7 +223,7 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
               className="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base shadow-[0_10px_35px_rgba(37,211,102,0.4)] transition-all hover:scale-105"
             >
               <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
-              <span>Conversar no WhatsApp: (17) 99195-1381</span>
+              <span>Falar com Comercial no WhatsApp: (17) 99195-1381</span>
             </a>
           </div>
         </div>
