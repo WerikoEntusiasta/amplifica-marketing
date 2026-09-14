@@ -56,7 +56,9 @@ function App() {
 
   return (
     <>
-      <Navbar onOpenBlog={openBlog} onGoHome={goHome} currentPage={currentPage === 'pitch' ? 'home' : currentPage} />
+      {currentPage !== 'pitch' && (
+        <Navbar onOpenBlog={openBlog} onGoHome={goHome} currentPage={currentPage} />
+      )}
       
       {currentPage === 'blog' ? (
         <BlogPage onBackToHome={goHome} />
