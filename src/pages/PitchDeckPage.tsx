@@ -13,6 +13,9 @@ import {
   Search,
   Tag,
   Sparkles,
+  Camera,
+  Layers,
+  CheckCircle2,
 } from 'lucide-react';
 import Video3DCoverflow from '../components/Video3DCoverflow';
 import ArtPortfolioGallery from '../components/ArtPortfolioGallery';
@@ -83,10 +86,37 @@ const REVENTA_SERVICES = [
   {
     num: '08',
     icon: <Search className="w-5 h-5 text-[#8B5CF6]" />,
-    title: 'SEO & Otimização no Google (Sites criados com IA)',
+    title: 'SEO & Otimização no Google (Sites IA)',
     price: 'R$ 450,00',
-    desc: 'Indexação profissional no Google, estrutura de sitemap, metadados e correção de SEO para sites IA.',
+    desc: 'Indexação profissional no Google, estrutura de sitemap, metadados e correção de SEO para sites criados com IA.',
     tag: 'Otimização Única',
+  },
+];
+
+const PACOTES_ARTE = [
+  { freq: '1 por semana', price: 'R$ 150,00', period: '/mês', detail: '4 artes profissionais por mês para feed/stories' },
+  { freq: '2 por semana', price: 'R$ 250,00', period: '/mês', detail: '8 artes profissionais por mês para feed/stories' },
+  { freq: '3 por semana', price: 'R$ 350,00', period: '/mês', detail: '12 artes profissionais por mês para feed/stories' },
+];
+
+const PACOTES_VIDEO = [
+  {
+    title: 'Pacote Drone',
+    price: 'R$ 300,00',
+    desc: 'Até 40min de gravação com 1 único drone (somente ambiente externo).',
+    tag: 'Filmagem Aérea',
+  },
+  {
+    title: 'Pacote Storymaker (Reels)',
+    price: 'R$ 200,00',
+    desc: '1 vídeo gravado e editado para Reels (não cobre eventos).',
+    tag: '1 Vídeo Reels',
+  },
+  {
+    title: 'Pacote Storymaker Evento (Por Hora)',
+    price: 'R$ 100,00 / hora',
+    desc: 'Mínimo de 4 horas de cobertura em eventos. (Abaixo de 4h = valor fixo de R$ 300,00).',
+    tag: 'Cobertura de Evento',
   },
 ];
 
@@ -140,10 +170,10 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
           </p>
         </div>
 
-        {/* 1. Tabela de Preços de Revenda B2B */}
+        {/* 1. Tabela Principal de Serviços & Valores */}
         <div className="space-y-6">
           <div className="border-l-4 border-[#FF6B00] pl-4">
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Tabela de Serviços & Valores</h2>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Tabela Principal de Serviços</h2>
             <p className="text-zinc-400 text-xs sm:text-sm">Valores exclusivos para parceiros e revendedores B2B</p>
           </div>
 
@@ -183,17 +213,82 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
           </div>
         </div>
 
-        {/* 2. Sistema Proprietário (Amplifica Planner a partir de R$ 15,00) */}
+        {/* 2. PACOTES DE ARTES */}
+        <div className="space-y-6 border-t border-white/10 pt-12">
+          <div className="border-l-4 border-[#8B5CF6] pl-4">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Pacote de Artes (Mensal)</h2>
+            <p className="text-zinc-400 text-xs sm:text-sm">Pacotes recorrentes de design gráfico para redes sociais</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {PACOTES_ARTE.map((p, i) => (
+              <div key={i} className="p-6 rounded-2xl neu-well space-y-4 border border-white/10 hover:border-[#8B5CF6]/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-[#8B5CF6]">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full neu-well text-[10px] font-bold text-[#8B5CF6] uppercase">
+                    Recorrência Mensal
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-bold text-xl text-white">{p.freq}</h3>
+                  <p className="text-xs text-zinc-400 mt-1">{p.detail}</p>
+                </div>
+
+                <div className="pt-3 border-t border-white/10 flex items-baseline gap-1">
+                  <span className="font-display font-extrabold text-2xl text-[#8B5CF6]">{p.price}</span>
+                  <span className="text-xs text-zinc-400">{p.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3. PACOTES DE VÍDEOS & STORYMAKER */}
+        <div className="space-y-6 border-t border-white/10 pt-12">
+          <div className="border-l-4 border-[#FF6B00] pl-4">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Pacotes de Vídeos & Storymaker</h2>
+            <p className="text-zinc-400 text-xs sm:text-sm">Filmagens de drone, reels avulsos e cobertura de eventos por hora</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {PACOTES_VIDEO.map((v, i) => (
+              <div key={i} className="p-6 rounded-2xl neu-well space-y-4 border border-white/10 hover:border-[#FF6B00]/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-[#FF6B00]">
+                    <Camera className="w-5 h-5" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full neu-well text-[10px] font-bold text-[#FF8A33] uppercase">
+                    {v.tag}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-bold text-lg text-white">{v.title}</h3>
+                  <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{v.desc}</p>
+                </div>
+
+                <div className="pt-3 border-t border-white/10">
+                  <span className="font-display font-extrabold text-2xl text-[#FF6B00]">{v.price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 4. Sistema Proprietário (Amplifica Planner a partir de R$ 15,00) */}
         <div className="border-t border-white/10 pt-12">
           <SystemsShowcase />
         </div>
 
-        {/* 3. Portfólio Completo dos 5 Websites Entregues */}
+        {/* 5. Portfólio Completo dos 5 Websites Entregues */}
         <div className="border-t border-white/10 pt-12">
           <WebsitesShowcase />
         </div>
 
-        {/* 4. Portfólio Audiovisual Completo (67 Vídeos & Drone 4K) */}
+        {/* 6. Portfólio Audiovisual Completo (67 Vídeos & Drone 4K) */}
         <div className="border-t border-white/10 pt-12 space-y-4">
           <div className="border-l-4 border-[#8B5CF6] pl-4 mb-6">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wider">Portfólio Audiovisual & Drone 4K</h2>
@@ -202,7 +297,7 @@ export default function PitchDeckPage({ onGoHome }: PitchDeckPageProps) {
           <Video3DCoverflow />
         </div>
 
-        {/* 5. Portfólio de Design Gráfico (14 Artes Autorais) */}
+        {/* 7. Portfólio de Design Gráfico (14 Artes Autorais) */}
         <div className="border-t border-white/10 pt-12">
           <ArtPortfolioGallery />
         </div>
