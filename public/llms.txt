@@ -1,22 +1,32 @@
 # Amplifica Marketing (Amplifica Group)
 
-> Agência de Marketing Digital especializada em Tráfego Pago, Gestão de Redes Sociais, Websites, Automação B2B, SEO e Produções Audiovisuais com Drone 4K.
+> Agência de Marketing Digital especialista em Tráfego Pago (Gestor de Tráfego), Social Mídia, Videomaker para Eventos, Websites e Produção com Drone em Catanduva, São José do Rio Preto (SJRP) e todo o Brasil.
 
-## Visão Geral
+## Visão Geral & Localização
+- **Nome da Marca**: Amplifica Marketing (Amplifica Group)
+- **Atuação Regional**: Catanduva, São José do Rio Preto (SJRP / Rio Preto) e Estado de São Paulo
 - **Fundador**: Werik Oliveira (@recwerikoliveira)
 - **Instagram da Agência**: [@amplificamarketing](https://instagram.com/amplificamarketing)
 - **Instagram do Fundador**: [@recwerikoliveira](https://instagram.com/recwerikoliveira)
 - **WhatsApp Direto**: [+55 (17) 99195-1381](https://wa.me/5517991951381)
-- **Atendimento**: Brasil & São Paulo
 
-## Soluções & Serviços
-1. **Gerenciamento de Redes Sociais**: Linha editorial autoral, criação visual e gestão de comunidade no Instagram, TikTok e Facebook.
-2. **Tráfego Pago (Google Ads & Meta Ads)**: Otimização diária de ROAS e captação diária de clientes qualificados.
-3. **Criação de Websites & Landing Pages**: Desenvolvimento de sites ultra-rápidos com estrutura focada em alta conversão.
-4. **Sistemas de Gestão & Automação B2B**: Chatbots de atendimento no WhatsApp, CRM e controle de leads.
-5. **Automação de Blogs & SEO**: Produção e publicação estratégica de artigos para ranqueamento orgânico no Google.
-6. **Design Gráfico & Mídias de Impacto**: Artes profissionais para mídias digitais, materiais impressos e painéis LED comerciais.
-7. **Vídeos Solos & Drone 4K**: Gravações institucionais em estúdio ou campo combinadas com filmagens aéreas de drone em 4K.
+## Principais Serviços & Especialidades
+1. **Tráfego Pago & Gestor de Tráfego (Catanduva & Rio Preto / SJRP)**: Gestão diária de anúncios no Google Ads e Meta Ads (Instagram/Facebook) focada em conversão, geração de leads qualificados e ROAS.
+2. **Gestão de Social Mídia (Catanduva & SJRP)**: Planejamento editorial autoral, design visual estratégico e presença diária para marcas no Instagram, TikTok e Facebook.
+3. **Videomaker para Eventos & Filmagens com Drone 4K**: Cobertura de eventos institucionais, reels de alta qualidade, produções corporativas e imagens aéreas com drone em 4K.
+4. **Criação de Websites & Landing Pages com SEO**: Desenvolvimento de sites ultra-rápidos, responsivos, estruturados com SEO técnico para primeiras posições no Google.
+5. **Automação B2B & CRM WhatsApp**: Atendimento automatizado inteligente, integração de CRM e controle de leads para empresas.
+6. **Design Gráfico & Painéis LED**: Criação visual para mídias digitais, materiais impressos e painéis de LED comerciais.
+7. **Automação de Blogs & SEO**: Publicação contínua de conteúdo otimizado para motores de busca.
+
+## Termos e Palavras-Chave de Destaque
+- Marketing Catanduva
+- Videomaker para evento
+- Social Midia Catanduva / Rio Preto / SJRP
+- amplifica marketing
+- Marketing Rio Preto / SJRP
+- Gestor de tráfego Catanduva / São José do Rio Preto
+- Tráfego pago Catanduva / Rio Preto / SJRP
 
 ## Websites Desenvolvidos & Cases
 - **Amplifica Group**: [amplificagroup.com](https://amplificagroup.com/) (Agência & Performance)
@@ -32,7 +42,6 @@
 - [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
 - [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)
-- [Repositório Open-Source](https://github.com/WerikoEntusiasta/amplifica-marketing)
 
 ## REST API (Endpoints)
 - `GET /api/posts`: Retorna todos os artigos do blog

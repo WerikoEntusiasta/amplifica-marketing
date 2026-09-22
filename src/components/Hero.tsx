@@ -5,11 +5,11 @@ import TubesBackground from './TubesBackground';
 import GlowButton from './GlowButton';
 
 const SPECIALTIES = [
-  'Marketing de Conteúdo',
-  'Gestão de Redes Sociais',
-  'Tráfego Pago (Google & Meta)',
-  'Criação de Landing Pages',
-  'Gravação de Vídeo Solo & Drone',
+  'Gestor de Tráfego Pago em Catanduva & SJRP',
+  'Social Mídia em Catanduva & Rio Preto',
+  'Videomaker para Eventos & Drone 4K',
+  'Marketing Digital de Performance (ROI)',
+  'Criação de Websites & SEO para o Google',
 ];
 
 export default function Hero() {
@@ -95,7 +95,7 @@ export default function Hero() {
             <div className="hero-badge-el pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full neu-well mb-8">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
               <span className="text-xs font-bold text-[var(--orange)] tracking-wider uppercase">
-                Agência de Marketing Digital Completa
+                Marketing Digital em Catanduva & Rio Preto (SJRP)
               </span>
             </div>
 
@@ -118,7 +118,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="hero-sub-el text-sm sm:text-base text-[var(--text-muted)] max-w-2xl mb-10 leading-relaxed">
-              Transformamos marcas em referências no mercado através de estratégias orientadas a dados, marketing de conteúdo magnético e gestão de anúncios focada em ROI.
+              Agência de Marketing Digital em Catanduva e São José do Rio Preto (SJRP). Especialistas em Tráfego Pago, Gestor de Tráfego, Social Mídia, Videomaker para eventos e automação B2B.
             </p>
 
             {/* CTA Buttons */}

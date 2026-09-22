@@ -11,13 +11,13 @@ const VALUES = [
 ];
 
 const SPECIALTIES = [
-  { name: 'Gerenciamento de Redes Sociais', percent: 95 },
-  { name: 'Gestão de Tráfego Pago (Google & Meta)', percent: 92 },
-  { name: 'Criação de Websites & Landing Pages', percent: 90 },
-  { name: 'Sistemas de Gestão & Atendimento B2B', percent: 88 },
-  { name: 'Automação de Blogs & Ranqueamento SEO', percent: 85 },
+  { name: 'Gestão de Social Mídia em Catanduva & Rio Preto (SJRP)', percent: 95 },
+  { name: 'Gestor de Tráfego Pago em Catanduva & SJRP (Google & Meta)', percent: 92 },
+  { name: 'Videomaker para Eventos & Filmagens com Drone 4K', percent: 90 },
+  { name: 'Criação de Websites Responsivos & Otimização SEO', percent: 90 },
+  { name: 'Sistemas de Gestão & Atendimento B2B com CRM WhatsApp', percent: 88 },
+  { name: 'Automação de Blogs & Ranqueamento Orgânico no Google', percent: 85 },
   { name: 'Design Gráfico (Redes, Painéis LED & Impressão)', percent: 85 },
-  { name: 'Vídeos Solos & Filmagens Aéreas com Drone 4K', percent: 90 },
 ];
 
 export default function About() {
