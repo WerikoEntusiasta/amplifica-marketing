@@ -6,10 +6,12 @@ import GlowButton from './GlowButton';
 
 const SPECIALTIES = [
   'Gestor de Tráfego Pago em Catanduva & SJRP',
+  'Criação de Sistemas Sob Medida & Web Apps',
+  'Automação B2B & CRM de WhatsApp',
   'Social Mídia em Catanduva & Rio Preto',
   'Videomaker para Eventos & Drone 4K',
   'Marketing Digital de Performance (ROI)',
-  'Criação de Websites & SEO para o Google',
+  'Criação de Websites & SEO no Google',
 ];
 
 export default function Hero() {
@@ -95,7 +97,7 @@ export default function Hero() {
             <div className="hero-badge-el pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full neu-well mb-8">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
               <span className="text-xs font-bold text-[var(--orange)] tracking-wider uppercase">
-                Marketing Digital em Catanduva & Rio Preto (SJRP)
+                Marketing Digital, Sistemas & Automação | Catanduva, SJRP (100km)
               </span>
             </div>
 
@@ -118,7 +120,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="hero-sub-el text-sm sm:text-base text-[var(--text-muted)] max-w-2xl mb-10 leading-relaxed">
-              Agência de Marketing Digital em Catanduva e São José do Rio Preto (SJRP). Especialistas em Tráfego Pago, Gestor de Tráfego, Social Mídia, Videomaker para eventos e automação B2B.
+              Agência especialista em Marketing Digital, Criação de Sistemas Sob Medida e Automação B2B em Catanduva, São José do Rio Preto (SJRP) e região (raio 100km). Tráfego Pago, Gestor de Tráfego, Social Mídia, CRM WhatsApp, Videomaker para Eventos e Websites.
             </p>
 
             {/* CTA Buttons */}
