@@ -68,7 +68,7 @@ export default function BackgroundAudioPlayer() {
       }
     };
 
-    const interval = setInterval(checkVideoState, 300);
+    const interval = setInterval(checkVideoState, 1000);
 
     return () => {
       clearInterval(interval);
@@ -106,11 +106,11 @@ export default function BackgroundAudioPlayer() {
 
   return (
     <>
-      {/* Background Music Track (Clean Lofi Chill MP3 at 20% Volume) */}
+      {/* Background Music Track (Clean Lofi Chill MP3 at 20% Volume - Preload None for fast mobile load) */}
       <audio
         ref={audioRef}
         loop
-        preload="auto"
+        preload="none"
         src="/lofi-chill.mp3"
       />
 

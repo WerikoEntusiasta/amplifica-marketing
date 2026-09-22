@@ -68,12 +68,12 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             style={{
               opacity: 'var(--video-opacity)',
               filter: 'var(--video-filter)',
             }}
-            className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-105 transition-all duration-500"
+            className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-105 transition-all duration-500 hidden sm:block"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>

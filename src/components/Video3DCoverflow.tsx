@@ -225,6 +225,9 @@ export default function Video3DCoverflow() {
     };
   };
 
+  // Detect mobile device for card rendering limit
+  const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <section ref={sectionRef} id="portfolio" className="relative py-28 bg-[var(--bg)] overflow-hidden border-t border-[var(--border-subtle)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -259,9 +262,10 @@ export default function Video3DCoverflow() {
           }}
         >
           {ALL_PORTFOLIO_VIDEOS.map((item, idx) => {
-            // Render only items near active index for optimal performance
+            // Render only items near active index (3 on mobile, 5 on desktop)
             const diff = Math.abs(idx - activeIndex);
-            if (diff > 4) return null;
+            const maxDiff = isMobileScreen ? 1 : 2;
+            if (diff > maxDiff) return null;
 
             const isActive = idx === activeIndex;
             const style = getCardStyle(idx);
@@ -297,10 +301,11 @@ export default function Video3DCoverflow() {
                 {/* Real Adaptive Video Element */}
                 <div className="w-full h-full relative overflow-hidden bg-black">
                   <video
-                    autoPlay
+                    autoPlay={isActive}
                     loop
                     muted={!isActive || isMuted}
                     playsInline
+                    preload={isActive ? 'metadata' : 'none'}
                     onLoadedMetadata={(e) => handleLoadedMetadata(item.id, e)}
                     src={item.videoSrc}
                     className="w-full h-full object-cover"

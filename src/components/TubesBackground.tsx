@@ -26,7 +26,7 @@ export function TubesBackground({
   enableClickInteraction = true,
 }: TubesBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const tubesRef = useRef<any>(null);
   const paletteIndexRef = useRef(0);
 
@@ -34,13 +34,30 @@ export function TubesBackground({
     let mounted = true;
     let cleanup: (() => void) | undefined;
 
+    // Detect mobile / small screen for performance optimization
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768 || ('ontouchstart' in window && window.innerWidth < 1024);
+      setIsMobile(mobile);
+      return mobile;
+    };
+
+    if (checkMobile()) {
+      return; // Skip heavy 3D ThreeJS canvas initialization on mobile for 60fps performance
+    }
+
     const initTubes = async () => {
       if (!canvasRef.current) return;
 
       try {
-        // Dynamic import from CDN for threejs-components tubes1 cursor
+        // Dynamic import from CDN for threejs-components tubes1 cursor with timeout
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('CDN timeout')), 3500)
+        );
+
         // @ts-ignore
-        const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+        const importPromise = import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+
+        const module: any = await Promise.race([importPromise, timeoutPromise]);
         const TubesCursor = module.default;
 
         if (!mounted) return;
@@ -56,9 +73,12 @@ export function TubesBackground({
         });
 
         tubesRef.current = app;
-        setIsLoaded(true);
 
         const handleResize = () => {
+          if (window.innerWidth < 768) {
+            setIsMobile(true);
+            return;
+          }
           if (tubesRef.current && tubesRef.current.resize) {
             tubesRef.current.resize();
           }
@@ -70,7 +90,8 @@ export function TubesBackground({
           window.removeEventListener('resize', handleResize);
         };
       } catch (error) {
-        console.error('Failed to load TubesCursor:', error);
+        console.warn('TubesCursor fallback to ambient gradient:', error);
+        setIsMobile(true);
       }
     };
 
@@ -105,11 +126,15 @@ export function TubesBackground({
       className={`relative w-full h-full min-h-[400px] overflow-hidden bg-[#050507] ${className}`}
       onClick={handleClick}
     >
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full block z-0"
-        style={{ touchAction: 'none' }}
-      />
+      {!isMobile ? (
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full block z-0"
+          style={{ touchAction: 'none' }}
+        />
+      ) : (
+        <div className="absolute inset-0 z-0 bg-radial from-[#FF6B00]/10 via-[#8B5CF6]/5 to-[#050507] pointer-events-none" />
+      )}
 
       {/* Content Overlay */}
       <div className="relative z-10 w-full h-full pointer-events-none">
