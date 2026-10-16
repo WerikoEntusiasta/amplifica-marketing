@@ -108,7 +108,7 @@ export default function ArtPortfolioGallery() {
   );
 
   return (
-    <section className="relative py-24 bg-[var(--bg)] overflow-hidden">
+    <section id="artes" className="relative py-24 bg-[var(--bg)] overflow-hidden border-t border-[var(--border-subtle)]">
       {/* Mesh Orbs */}
       <div className="mesh-orb-orange top-1/3 -left-20" />
       <div className="mesh-orb-purple bottom-10 -right-20" />

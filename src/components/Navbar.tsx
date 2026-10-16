@@ -10,7 +10,9 @@ interface NavbarProps {
 const NAV_ITEMS = [
   { label: 'Início', href: '#hero', page: 'home' },
   { label: 'Serviços', href: '#servicos', page: 'home' },
-  { label: 'Portfólio', href: '#portfolio', page: 'home' },
+  { label: 'Vídeos', href: '#portfolio', page: 'home' },
+  { label: 'Artes', href: '#artes', page: 'home' },
+  { label: 'Sistemas', href: '#sistemas', page: 'home' },
   { label: 'Sobre', href: '#sobre', page: 'home' },
   { label: 'Planner ↗', href: 'https://planner.amplificagroup.com/', page: 'external' },
   { label: 'Blog', href: '#blog', page: 'blog' },
