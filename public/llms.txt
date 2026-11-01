@@ -2,14 +2,20 @@
 
 > Agência de Marketing Digital especialista em Tráfego Pago (Gestor de Tráfego), Criação de Sistemas Sob Medida, Automação B2B (CRM WhatsApp), Social Mídia, Videomaker para Eventos, Websites e Produção com Drone em Catanduva, São José do Rio Preto (SJRP) e todo o raio de 100km.
 
+## Base de Conhecimento Completa para IA
+- Para a documentação integral, catálogo de serviços e todos os 30 artigos na íntegra, acesse: [llms-full.txt](https://amplificagroup.com/llms-full.txt)
+
 ## Visão Geral & Localização
 - **Nome da Marca**: Amplifica Marketing (Amplifica Group)
 - **Sede**: Catanduva - SP (Brasil)
+- **Coordenadas**: Latitude -21.1378, Longitude -48.9731
 - **Raio de Atendimento Presencial / Regional**: 100km ao redor de Catanduva (SP) + Atendimento Nacional Online
 - **Fundador**: Werik Oliveira (@recwerikoliveira)
 - **Instagram da Agência**: [@amplificamarketing](https://instagram.com/amplificamarketing)
 - **Instagram do Fundador**: [@recwerikoliveira](https://instagram.com/recwerikoliveira)
 - **WhatsApp Direto**: [+55 (17) 99195-1381](https://wa.me/5517991951381)
+- **Website Oficial**: [amplificagroup.com](https://amplificagroup.com/)
+- **Repositório GitHub**: [github.com/WerikoEntusiasta/amplifica-marketing](https://github.com/WerikoEntusiasta/amplifica-marketing)
 
 ## Cidades Atendidas no Raio de 100km de Catanduva (SP)
 - **Catanduva** (Sede)
@@ -19,22 +25,22 @@
 - **Bebedouro**, **Olímpia**, **Barretos**, **Jaboticabal**, **Monte Alto**, **Votuporanga**, **Sertãozinho**
 
 ## 1. Serviços de Marketing Digital & Audiovisual
-- **Tráfego Pago & Gestor de Tráfego (Catanduva, Rio Preto / SJRP & Raio 100km)**: Gestão diária de anúncios no Google Ads e Meta Ads (Instagram/Facebook) focada em conversão, geração de leads qualificados e alto ROAS.
-- **Gestão de Social Mídia & Linha Editorial**: Planejamento estratégico, design visual autoral, copy de engajamento e presença diária para marcas no Instagram, TikTok e Facebook.
-- **Videomaker para Eventos & Filmagens com Drone 4K**: Cobertura de eventos institucionais, reels de alto engajamento, produções corporativas e imagens aéreas com drone em 4K.
-- **Consultoria de Marketing Digital & Performance**: Estratégias completas para posicionamento de marca, aquisição de clientes e crescimento acelerado.
+- **Tráfego Pago & Gestor de Tráfego (Catanduva, Rio Preto / SJRP & Raio 100km)**: Gestão diária de anúncios no Google Ads e Meta Ads (Instagram/Facebook) focada em conversão, geração de leads qualificados e alto ROAS (R$ 500,00/mês).
+- **Gestão de Social Mídia & Linha Editorial**: Planejamento estratégico, design visual autoral, copy de engajamento e presença diária para marcas no Instagram, TikTok e Facebook (a partir de R$ 200,00/mês).
+- **Videomaker para Eventos & Filmagens com Drone 4K**: Cobertura de eventos corporativos e sociais, gravação de reels de alto impacto, produções institucionais e imagens aéreas cinematográficas com drone 4K (a partir de R$ 250,00; eventos a R$ 100,00/hora).
+- **Design Gráfico & Painéis LED**: Criação visual para mídias digitais, materiais impressos e painéis de LED comerciais (a partir de R$ 50,00).
 
 ## 2. Criação de Sistemas & Desenvolvimento Web
 - **Criação de Sistemas Sob Medida**: Desenvolvimento de software web personalizado, plataformas SaaS, dashboards administrativos e sistemas de gestão empresarial.
-- **Desenvolvimento de Websites & Landing Pages**: Websites ultra-rápidos, responsivos, estruturados com SEO técnico para primeiras posições no Google.
-- **Desenvolvimento de E-commerce & Lojas Virtuais**: Soluções completas para vendas online integradas a meios de pagamento e sistemas de frete.
+- **Desenvolvimento de Websites & Landing Pages**: Websites ultra-rápidos, responsivos, estruturados com SEO técnico para primeiras posições no Google (Landing page: R$ 1.000,00 / Site completo ou E-commerce: R$ 2.000,00).
+- **SEO & Ranqueamento Orgânico**: Estruturação técnica para posicionamento no Google e mecanismos de busca (R$ 450,00).
 
 ## 3. Automação B2B, Vendas & CRM WhatsApp
-- **Automação B2B & CRM WhatsApp**: Atendimento automatizado inteligente, disparo estruturado, qualificação de leads e gestão de contatos comercial.
-- **Chatbots Inteligentes**: Atendimento 24/7 integrado via WhatsApp API para conversão direta.
-- **Automação de Blogs & SEO Orgânico**: Sistemas automatizados para geração e publicação contínua de conteúdos otimizados para mecanismos de busca.
+- **Automação B2B & CRM WhatsApp**: Atendimento automatizado inteligente, disparo estruturado, qualificação de leads e gestão de contatos comercial (a partir de R$ 500,00).
+- **Chatbots Inteligentes**: Atendimento 24/7 integrado via WhatsApp API para conversão direta de clientes.
+- **Amplifica Planner**: Plataforma própria de planejamento de conteúdo e aprovação de artes para agências e marcas parceiras (a partir de R$ 15,00 em [planner.amplificagroup.com](https://planner.amplificagroup.com/)).
 
-## Palavras-Chave de Destaque para Busca (SEO)
+## Termos e Palavras-Chave de Destaque para Busca (SEO & GEO)
 - Marketing Catanduva / Marketing Rio Preto / Marketing SJRP
 - Videomaker para evento / Videomaker Catanduva / Videomaker Rio Preto
 - Social Midia Catanduva / Social Midia Rio Preto / Social Midia SJRP
@@ -45,7 +51,39 @@
 - Automação b2b / CRM WhatsApp / Chatbot WhatsApp / Automação de vendas
 - Criação de sites Catanduva / Desenvolvimento web Rio Preto / Landing Page SEO
 
-## Websites Desenvolvidos & Cases
+## Artigos Publicados no Blog (30 Artigos Estratégicos)
+- [Produtividade para Empreendedores: Faça Mais com o Mesmo Tempo](https://amplificagroup.com/#artigo-produtividade-para-empreendedores--faca-mais-com-o-mesmo-tempo)
+- [Rotina Empreendedora Eficiente: Estrutura que Gera Resultado](https://amplificagroup.com/#artigo-rotina-empreendedora-eficiente--estrutura-que-gera-resultado)
+- [Como Validar uma Ideia de Negócio Antes de Gastar Dinheiro](https://amplificagroup.com/#artigo-como-validar-uma-ideia-de-negocio-antes-de-gastar-dinheiro)
+- [Ideia Boa Não Basta: Como Validar um Negócio Antes de Investir](https://amplificagroup.com/#artigo-ideia-boa-nao-basta--como-validar-um-negocio-antes-de-investir)
+- [Gestão Financeira para Pequenas Empresas: Guia Prático 2026](https://amplificagroup.com/#artigo-gestao-financeira-para-pequenas-empresas--guia-pratico-2026)
+- [Erros que Matam Negócios Digitais em 2026 (e Como Evitar)](https://amplificagroup.com/#artigo-erros-que-matam-negocios-digitais-em-2026-e-como-evitar)
+- [Agentes de IA no Marketing 2026: Automação Inteligente que Trabalha por Você](https://amplificagroup.com/#artigo-agentes-de-ia-no-marketing-2026-automacao-inteligente-que-trabalha-por-voce)
+- [IA e LGPD: Como Usar Inteligência Artificial sem Riscos Legais](https://amplificagroup.com/#artigo-ia-e-lgpd-como-usar-inteligencia-artificial-sem-riscos-legais)
+- [Hiper-personalização no E-commerce com IA: Venda Mais com Menos Desperdício](https://amplificagroup.com/#artigo-hiper-personalizacao-no-e-commerce-com-ia-venda-mais-com-menos-desperdicio)
+- [Analytics Preditivo no Marketing: Antecipe Resultados com Dados](https://amplificagroup.com/#artigo-analytics-preditivo-no-marketing-antecipe-resultados-com-dados)
+- [Ferramentas de IA para Marketing 2026: O Melhor de Cada Objetivo](https://amplificagroup.com/#artigo-ferramentas-de-ia-para-marketing-2026-o-melhor-de-cada-objetivo)
+- [IA no Processo de Vendas B2B: Do Prospecção ao Fechamento](https://amplificagroup.com/#artigo-ia-no-processo-de-vendas-b2b-do-prospeccao-ao-fechamento)
+- [Atendimento Automático com IA: Chatbots que Vendem e Fidelizam](https://amplificagroup.com/#artigo-atendimento-automatico-com-ia-chatbots-que-vendem-e-fidelizam)
+- [ChatGPT para Pequenas Empresas: Guia Prático da OpenAI](https://amplificagroup.com/#artigo-chatgpt-para-pequenas-empresas-guia-pratico-da-openai)
+- [IA Generativa no Marketing 2026: Como Usar Sem Perder a Autenticidade](https://amplificagroup.com/#artigo-ia-generativa-no-marketing-2026-como-usar-sem-perder-a-autenticidade)
+- [TikTok Ads 2026: Guia Prático para Anunciar no TikTok](https://amplificagroup.com/#artigo-tiktok-ads-2026-guia-pratico-para-anunciar-no-tiktok)
+- [Tráfego Orgânico 2026: SEO para Pequenas Empresas que Funciona](https://amplificagroup.com/#artigo-trafego-organico-2026-seo-para-pequenas-empresas-que-funciona)
+- [Marketing Local 2026: Como Atrair Clientes da Sua Região](https://amplificagroup.com/#artigo-marketing-local-2026-como-atrair-clientes-da-sua-regiao)
+- [LinkedIn para B2B 2026: Como Gerar Leads Qualificados no LinkedIn](https://amplificagroup.com/#artigo-linkedin-para-b2b-2026-como-gerar-leads-qualificados-no-linkedin)
+- [Landing Pages que Convertem: Otimização de Conversão (CRO) em 2026](https://amplificagroup.com/#artigo-landing-pages-que-convertem-otimizacao-de-conversao-cro-em-2026)
+- [Marketing de Influência 2026: Como Escolher Criadores e Medir Resultados](https://amplificagroup.com/#artigo-marketing-de-influencia-2026-como-escolher-criadores-e-medir-resultados)
+- [WhatsApp Business 2026: Guia Completo para Vender e Atender no App](https://amplificagroup.com/#artigo-whatsapp-business-2026-guia-completo-para-vender-e-atender-no-app)
+- [Copywriting Persuasivo: Técnicas para Escrever Anúncios que Vendem](https://amplificagroup.com/#artigo-copywriting-persuasivo-tecnicas-para-escrever-anuncios-que-vendem)
+- [Meta Ads 2026: 19 Táticas para Reduzir o CPA e Escalar com Lucro](https://amplificagroup.com/#artigo-meta-ads-2026-19-taticas-para-reduzir-o-cpa-e-escalar-com-lucro)
+- [Funil de Vendas Digital em 2026: O que Mudou e o que Ainda Converte](https://amplificagroup.com/#artigo-funil-de-vendas-digital-em-2026-o-que-mudou-e-o-que-ainda-converte)
+- [Marketing de Conteúdo: Como Criar uma Estratégia que Converte](https://amplificagroup.com/#artigo-marketing-de-conteudo-como-criar-uma-estrategia-que-converte)
+- [Email Marketing 2026: Estratégia Passo a Passo para Vender Mais](https://amplificagroup.com/#artigo-email-marketing-2026-estrategia-passo-a-passo-para-vender-mais)
+- [Google Ads Performance Max 2026: Guia para Otimizar Suas Campanhas](https://amplificagroup.com/#artigo-google-ads-performance-max-2026-guia-para-otimizar-suas-campanhas)
+- [SEO Local 2026: Como Aparecer no Google da Sua Cidade](https://amplificagroup.com/#artigo-seo-local-2026-como-aparecer-no-google-da-sua-cidade)
+- [Como Funciona o Algoritmo do Instagram em 2026: Guia para Crescer com Reels](https://amplificagroup.com/#artigo-como-funciona-o-algoritmo-do-instagram-em-2026-guia-para-crescer-com-reels)
+
+## Websites Desenvolvidos & Cases de Sucesso
 - **Amplifica Group**: [amplificagroup.com](https://amplificagroup.com/) (Agência & Performance)
 - **Agro Pasi**: [agropasi.com.br](https://agropasi.com.br/) (Agronegócio)
 - **Pasilux**: [pasilux.com.br](https://pasilux.com.br/) (Iluminação & Elétrica)
@@ -57,12 +95,7 @@
 - [Amplifica Planner — Planejador de Conteúdo](https://planner.amplificagroup.com/) (a partir de R$ 15,00)
 - [Apresentação Executiva & Tabela de Revenda para Agências](https://amplificagroup.com/#apresentacao)
 - [Blog de Conteúdo & Insights](https://amplificagroup.com/#blog)
+- [Feed RSS 2.0](https://amplificagroup.com/rss.xml)
+- [Feed Atom](https://amplificagroup.com/feed.xml)
 - [REST API do Blog](https://amplificagroup.com/api/posts)
 - [Documentação da API](https://github.com/WerikoEntusiasta/amplifica-marketing/blob/main/API_DOCUMENTATION.md)
-
-## REST API (Endpoints)
-- `GET /api/posts`: Retorna todos os artigos do blog
-- `GET /api/posts/:id`: Retorna os detalhes de um artigo por ID
-- `POST /api/posts`: Cria um artigo (requer API Key no header `x-api-key`)
-- `PUT /api/posts/:id`: Edita um artigo (requer API Key)
-- `DELETE /api/posts/:id`: Remove um artigo (requer API Key)

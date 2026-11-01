@@ -1,4 +1,4 @@
-import { BlogArticle } from '../data/blogArticles';
+import { BlogArticle, BLOG_ARTICLES } from '../data/blogArticles';
 
 // Dynamic API Base URL (Relative path /api/posts works on Docker, ZimaOS, Railway, and localhost production)
 const API_BASE_URL = '/api/posts';
@@ -7,9 +7,10 @@ const LOCAL_STORAGE_KEY = 'amplifica_blog_posts';
 const getLocalPosts = (): BlogArticle[] => {
   try {
     const data = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
+    const parsed = data ? JSON.parse(data) : [];
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : BLOG_ARTICLES;
   } catch {
-    return [];
+    return BLOG_ARTICLES;
   }
 };
 
@@ -33,10 +34,9 @@ export async function fetchBlogPosts(): Promise<BlogArticle[]> {
       saveLocalPosts(posts);
       return posts;
     }
-    return posts;
+    return getLocalPosts();
   } catch (err) {
-    console.warn('API fetch warning, loading local persistence:', err);
-    // Fallback to local persistence
+    // Fallback to bundled articles + local persistence
     return getLocalPosts();
   }
 }

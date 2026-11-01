@@ -47,6 +47,46 @@ export default function BlogPage({ onBackToHome }: BlogPageProps) {
     loadArticles();
   }, []);
 
+  // Deep-linking: sync URL hash (#artigo-slug) with reading state
+  useEffect(() => {
+    if (articles.length === 0) return;
+    const checkHashForArticle = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.startsWith('#artigo-') || hash.startsWith('#post-')) {
+        const slug = hash.replace(/^#(artigo|post)-/, '');
+        const target = articles.find(
+          (a) => a.slug.toLowerCase() === slug || String(a.id) === slug
+        );
+        if (target) {
+          setReadingArticle(target);
+          document.title = `${target.title} | Blog Amplifica Marketing`;
+          return;
+        }
+      }
+      if (hash === '#blog') {
+        setReadingArticle(null);
+        document.title = 'Blog & Insights | Amplifica Marketing';
+      }
+    };
+    checkHashForArticle();
+    window.addEventListener('hashchange', checkHashForArticle);
+    return () => window.removeEventListener('hashchange', checkHashForArticle);
+  }, [articles]);
+
+  const openArticle = (article: BlogArticle) => {
+    setReadingArticle(article);
+    window.location.hash = `#artigo-${article.slug}`;
+    document.title = `${article.title} | Blog Amplifica Marketing`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const closeArticle = () => {
+    setReadingArticle(null);
+    window.location.hash = '#blog';
+    document.title = 'Blog & Insights | Amplifica Marketing';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Filter articles by Category & Search query
   const filteredArticles = articles.filter((article) => {
     const matchesCategory = selectedCategory === 'Todas' || article.category === selectedCategory;
@@ -61,14 +101,45 @@ export default function BlogPage({ onBackToHome }: BlogPageProps) {
   // FULL DEDICATED ARTICLE READING PAGE VIEW
   // ===================================================
   if (readingArticle) {
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": readingArticle.title,
+      "description": readingArticle.excerpt,
+      "image": readingArticle.image,
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-11-01",
+      "author": {
+        "@type": "Person",
+        "name": readingArticle.author || "Werik Oliveira",
+        "url": "https://instagram.com/recwerikoliveira"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Amplifica Marketing",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://amplificagroup.com/logo-new.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://amplificagroup.com/#artigo-${readingArticle.slug}`
+      }
+    };
+
     return (
       <article className="min-h-screen bg-[var(--bg)] text-[var(--text)] pt-24 pb-28">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           
           {/* Top Article Navigation Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-[var(--border-subtle)]">
             <button
-              onClick={() => setReadingArticle(null)}
+              onClick={closeArticle}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full neu-btn text-xs font-bold text-white hover:text-[#FF6B00] transition-colors shadow-md"
             >
               <ArrowLeft className="w-4 h-4 text-[#FF6B00]" />
@@ -158,10 +229,7 @@ export default function BlogPage({ onBackToHome }: BlogPageProps) {
 
             <div className="flex items-center justify-between text-xs text-zinc-400">
               <button
-                onClick={() => {
-                  setReadingArticle(null);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={closeArticle}
                 className="inline-flex items-center gap-2 text-[#FF6B00] font-bold hover:underline"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -249,10 +317,7 @@ export default function BlogPage({ onBackToHome }: BlogPageProps) {
             {filteredArticles.map((article) => (
               <div
                 key={article.id}
-                onClick={() => {
-                  setReadingArticle(article);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={() => openArticle(article)}
                 className="cursor-pointer group h-full relative"
               >
                 <BorderGlow

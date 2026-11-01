@@ -20,11 +20,12 @@ function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase()
-      if (hash === '#blog') {
+      const pathname = window.location.pathname.toLowerCase()
+      if (hash === '#blog' || hash.startsWith('#artigo-') || hash.startsWith('#post-') || pathname === '/blog' || pathname.startsWith('/blog/')) {
         setCurrentPage('blog')
         document.title = 'Blog & Insights | Amplifica Marketing'
         window.scrollTo({ top: 0, behavior: 'smooth' })
-      } else if (hash === '#apresentacaoagencias' || hash === '#apresentacao-agencias' || hash === '#apresentacao' || hash === '#deck' || hash === '#pitch' || hash === '#cases') {
+      } else if (hash === '#apresentacaoagencias' || hash === '#apresentacao-agencias' || hash === '#apresentacao' || hash === '#deck' || hash === '#pitch' || hash === '#cases' || pathname === '/apresentacao') {
         setCurrentPage('pitch')
         document.title = 'Tabela de Revenda para Agências | Amplifica Group'
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -35,7 +36,11 @@ function App() {
     }
     handleHash()
     window.addEventListener('hashchange', handleHash)
-    return () => window.removeEventListener('hashchange', handleHash)
+    window.addEventListener('popstate', handleHash)
+    return () => {
+      window.removeEventListener('hashchange', handleHash)
+      window.removeEventListener('popstate', handleHash)
+    }
   }, [])
 
   const openBlog = () => {

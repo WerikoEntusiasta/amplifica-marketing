@@ -1,4 +1,46 @@
+# Robots.txt for Amplifica Marketing (https://amplificagroup.com/)
+# Optimized for Google, Bing, Yahoo, DuckDuckGo, Yandex, Baidu & Generative AI Search Engines (GEO)
+
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Allow: /rss.xml
+Allow: /feed.xml
+
+# AI & LLM Search Crawlers (ChatGPT Search, Perplexity, Claude, Apple Intelligence, Gemini)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Meta-ExternalAgent
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Allow: /rss.xml
+
+# Default Rule for all other crawlers
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
+# Sitemaps & Syndication Feeds
 Sitemap: https://amplificagroup.com/sitemap.xml
+Sitemap: https://amplificagroup.com/rss.xml
