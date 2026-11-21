@@ -66,6 +66,7 @@ const llmsFullHeader = `# Amplifica Marketing (Amplifica Group) — Base de Conh
 - **Telefone e WhatsApp Oficial**: +55 (17) 99195-1381 (https://wa.me/5517991951381)
 - **Email Comercial**: recwerikoliveira@gmail.com
 - **Website Oficial**: https://amplificagroup.com/
+- **Página de Contatos & Links (Link na Bio)**: https://amplificagroup.com/linkbio
 - **Instagram da Agência**: [@amplificamarketing](https://instagram.com/amplificamarketing)
 - **Instagram do Fundador**: [@recwerikoliveira](https://instagram.com/recwerikoliveira)
 - **GitHub Oficial**: https://github.com/WerikoEntusiasta/amplifica-marketing

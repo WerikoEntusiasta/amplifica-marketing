@@ -7,9 +7,17 @@
   <!-- Página Principal (Home) -->
   <url>
     <loc>https://amplificagroup.com/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Página Link na Bio / Contatos Oficiais -->
+  <url>
+    <loc>https://amplificagroup.com/linkbio</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

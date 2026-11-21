@@ -80,6 +80,15 @@ export default function ContactFooter() {
                   <span>WhatsApp: +55 (17) 99195-1381</span>
                 </a>
               </li>
+              <li>
+                <a
+                  href="/linkbio"
+                  className="flex items-center gap-2 text-zinc-300 hover:text-[#FF6B00] transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+                  <span>Página de Contatos (Link na Bio)</span>
+                </a>
+              </li>
               <li className="flex items-center gap-2 text-zinc-400">
                 <MapPin className="w-3.5 h-3.5 text-[#8B5CF6]" />
                 <span>São Paulo & Região (Atendimento Brasil)</span>

@@ -13,15 +13,31 @@ import WhatsAppButton from './components/WhatsAppButton'
 import BackgroundAudioPlayer from './components/BackgroundAudioPlayer'
 import BlogPage from './pages/BlogPage'
 import PitchDeckPage from './pages/PitchDeckPage'
+import LinkBioPage from './pages/LinkBioPage'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'blog' | 'pitch'>('home')
+  const [currentPage, setCurrentPage] = useState<'home' | 'blog' | 'pitch' | 'linkbio'>('home')
 
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase()
       const pathname = window.location.pathname.toLowerCase()
-      if (hash === '#blog' || hash.startsWith('#artigo-') || hash.startsWith('#post-') || pathname === '/blog' || pathname.startsWith('/blog/')) {
+      
+      if (
+        hash === '#linkbio' ||
+        hash === '#bio' ||
+        hash === '#links' ||
+        hash === '#link-bio' ||
+        pathname === '/linkbio' ||
+        pathname === '/linkbio/' ||
+        pathname === '/bio' ||
+        pathname === '/links' ||
+        pathname === '/link-bio'
+      ) {
+        setCurrentPage('linkbio')
+        document.title = 'Links Oficiais & Contatos | Amplifica Marketing'
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (hash === '#blog' || hash.startsWith('#artigo-') || hash.startsWith('#post-') || pathname === '/blog' || pathname.startsWith('/blog/')) {
         setCurrentPage('blog')
         document.title = 'Blog & Insights | Amplifica Marketing'
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -53,15 +69,25 @@ function App() {
   const goHome = () => {
     setCurrentPage('home')
     document.title = 'Amplifica Marketing | Agência de Marketing Digital & Performance'
-    if (window.location.hash === '#blog' || window.location.hash === '#apresentacao' || window.location.hash === '#deck') {
+    if (
+      window.location.hash === '#blog' ||
+      window.location.hash === '#apresentacao' ||
+      window.location.hash === '#deck' ||
+      window.location.hash === '#linkbio' ||
+      window.location.hash === '#bio' ||
+      window.location.hash === '#links'
+    ) {
       window.location.hash = ''
+    }
+    if (window.location.pathname !== '/') {
+      window.history.pushState(null, '', '/')
     }
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <>
-      {currentPage !== 'pitch' && (
+      {currentPage !== 'pitch' && currentPage !== 'linkbio' && (
         <Navbar onOpenBlog={openBlog} onGoHome={goHome} currentPage={currentPage} />
       )}
       
@@ -69,6 +95,8 @@ function App() {
         <BlogPage onBackToHome={goHome} />
       ) : currentPage === 'pitch' ? (
         <PitchDeckPage onGoHome={goHome} />
+      ) : currentPage === 'linkbio' ? (
+        <LinkBioPage onGoHome={goHome} />
       ) : (
         <main>
           <Hero />
@@ -83,7 +111,7 @@ function App() {
         </main>
       )}
 
-      <WhatsAppButton />
+      {currentPage !== 'linkbio' && <WhatsAppButton />}
       <BackgroundAudioPlayer />
     </>
   )
