@@ -24,7 +24,10 @@ x-casaos:
 
 services:
   amplifica-app:
-    image: werikoliveira/amplificagroup:latest
+    image: amplifica-marketing:latest
+    build:
+      context: https://github.com/WerikoEntusiasta/amplifica-marketing.git#main
+      dockerfile: Dockerfile
     container_name: amplifica-marketing-zimaos
     restart: unless-stopped
     ports:
