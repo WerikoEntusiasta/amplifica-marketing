@@ -26,7 +26,8 @@ services:
   amplifica-app:
     image: werikoliveira/amplificagroup:latest
     container_name: amplifica-marketing-zimaos
-    restart: unless-stopped
+    restart: always
+    stop_grace_period: 5s
     ports:
       - "3001:3001"
     environment:
@@ -36,9 +37,9 @@ services:
     volumes:
       - /DATA/AppData/amplifica-marketing/data:/app/server/data
     healthcheck:
-      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/posts', (r) => { if (r.statusCode !== 200) process.exit(1); })"]
-      interval: 30s
-      timeout: 10s
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/health', (r) => { if (r.statusCode !== 200) process.exit(1); })"]
+      interval: 15s
+      timeout: 5s
       retries: 3
       start_period: 10s
     x-casaos:

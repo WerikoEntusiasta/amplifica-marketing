@@ -1,3 +1,12 @@
+// 🛡️ ANTI-CRASH SHIELD: Captura exceções e rejeições assíncronas para o Node nunca cair
+process.on('uncaughtException', (err) => {
+  console.error('[SHIELD] Erro não capturado interceptado:', err.message, err.stack);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[SHIELD] Promise rejeitada interceptada:', promise, 'motivo:', reason);
+});
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -74,6 +83,16 @@ const apiCorsOptions = {
 
 // Apply CORS strictly to /api/ routes
 app.use('/api/', cors(apiCorsOptions));
+
+// 🛡️ Healthcheck ultraleve para Docker e Watchdog (sem rate-limit, <1ms)
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: Math.floor(process.uptime()),
+    memory: Math.round(process.memoryUsage().rss / 1024 / 1024) + 'MB',
+    timestamp: new Date().toISOString()
+  });
+});
 
 // 3. IP Rate Limiting (Anti-DDoS / Anti-Brute Force)
 const apiLimiter = rateLimit({
@@ -291,6 +310,28 @@ if (fs.existsSync(distPath)) {
   });
 }
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🚀 REST API rodando na porta ${PORT} (API_KEY protegida)`);
 });
+
+// 🛡️ Finalização Graciosa para Docker e Reinicializações Rápidas
+const gracefulShutdown = (signal) => {
+  console.log(`[SHIELD] Recebido sinal ${signal}. Encerrando conexões de forma segura...`);
+  server.close(() => {
+    console.log('[SHIELD] Servidor HTTP finalizado.');
+    try {
+      if (typeof db !== 'undefined' && db && db.close) {
+        db.close();
+        console.log('[SHIELD] Banco SQLite fechado.');
+      }
+    } catch (e) {}
+    process.exit(0);
+  });
+  setTimeout(() => {
+    console.error('[SHIELD] Forçando encerramento após 5 segundos.');
+    process.exit(1);
+  }, 5000);
+};
+
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
